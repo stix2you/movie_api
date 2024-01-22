@@ -1,16 +1,24 @@
 {
   "name": "movie_api",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Web app to provide users with access to information about different movies, directors, and genres. Users will be able to sign up, update personal information, and maintain a list of their favorite movies.",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node index.js"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stix2you/movie_api.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stix2you/movie_api/issues"
+  },
+  "homepage": "https://github.com/stix2you/movie_api#readme",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
   }
 }
