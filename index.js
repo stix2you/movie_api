@@ -1,7 +1,9 @@
+// import express and morgan
 const express = require('express'),
     morgan = require('morgan'),
     app = express();
 
+// array of top 10 movies
 let topMovies = [
     {
         title: 'The Shawshank Redemption',
@@ -85,13 +87,13 @@ let topMovies = [
     }
 ];
 
-// log requests to terminal using morgan
+// logging: send to terminal using morgan common format
 app.use(morgan('common'));
 
 // set static folder to public
 app.use(express.static('public'));
 
-// GET requests
+// 'get' requests
 app.get('/', (req, res) => {
     res.send('Welcome to myFlix Movie App!');
 });
@@ -100,11 +102,15 @@ app.get('/movies', (req, res) => {
     res.json(topMovies);
 });
 
-// error handling
-app.use((err, req, res, next) => {
-    console.error(err.stack);
+// error handling for 404
+app.use((req, res) => {
+    res.status(404).send("Sorry, the resource you're looking for doesn't exist.");
+});
+
+// error handling for 500
+app.use((req, res) => {
     res.status(500).send('Something broke!');
-  });
+});
 
 // start the server
 app.listen(8080, () => {
