@@ -46,64 +46,64 @@
         <td>Return a list of ALL movies to the user</td>
         <td>/movies</td>
         <td>GET</td>
-        <td>Data 4</td>
-        <td>Data 5</td>
+        <td>None</td>
+        <td>A JSON object holding data about all movies, structured like:</td>
     </tr>
     <tr>
         <td>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user</td>
         <td>/movies/[title]</td>
         <td>GET</td>
-        <td>Data 4</td>
-        <td>Data 5</td>
+        <td>None</td>
+        <td>A JSON object holding all data about the given movie, structured like:</td>
     </tr>
     <tr>
-        <td>Return data about a genre (description) by title</td>
+        <td>Return data about a genre (description) by title</td>  <!-- Given a title, return the Genre-->
         <td>/movies/[title]/genre</td>
         <td>GET</td>
-        <td>Data 4</td>
-        <td>Data 5</td>
+        <td>None</td>
+        <td>A text message indicating the genre of the given movie</td>
     </tr>
     <tr>
         <td>Return data about a director (bio, birth year, death year) by name</td>
         <td>/movies/[director]</td>
         <td>GET</td>
-        <td>Data 4</td>
-        <td>Data 5</td>
+        <td>None</td>
+        <td>A JSON object holding all the data about the given director, structured like:</td>
     </tr>
     <tr>
         <td>Allow new users to register</td>
         <td>/users</td>
         <td>POST</td>
-        <td>Data 4</td>
-        <td>Data 5</td>
+        <td>A JSON object holding data about the user to add, structured like:</td>
+        <td>A JSON object holding data about the user that was added, including a unique ID</td>
     </tr>
     <tr>
         <td>Allow users to update their user info (username)</td>
         <td>/users/[username]</td>
         <td>PUT</td>
-        <td>Data 4</td>
-        <td>Data 5</td>
+        <td>None</td>
+        <td>A text message indicating that the username was updated</td>
     </tr>
     <tr>
         <td>Allow users to add a movie to their list of favorites, showing only a text that a movie has been added</td>
         <td>/users/favorites/[title]</td>
         <td>POST</td>
-        <td>Data 4</td>
-        <td>Data 5</td>
+        <td>None</td>
+        <td>A text message indicating a movie was added to the user's favorite list</td>
     </tr>
     <tr>
-        <td>Allow users to remove a movie from their list of favorites (showing only a text that a movie has been removed</td>
+        <td>Allow users to remove a movie from their list of favorites, showing only a text that a movie has been removed</td>
         <td>/users/favorites/[title]</td>
         <td>DELETE</td>
-        <td>Data 4</td>
-        <td>Data 5</td>
+        <td>None</td>
+        <td>A text message indicating a movie was removed from the user's favorite list</td>
     </tr>
     <tr>
         <td>Allow existing users to deregister, showing only a text that a user email has been removed</td>
         <td>/users/[ID]</td>
         <td>DELETE</td>
-        <td>Data 4</td>
-        <td>Data 5</td>
+        <td>None</td>
+        <td>A text message indicating the user email was removed</td>
     </tr>
 </table>
 
