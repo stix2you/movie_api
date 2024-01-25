@@ -1,154 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>myFlix App Documentation</title>
-<style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    th, td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: center;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-    th:nth-child(1),
-    td:nth-child(1) {
-        width: 30vw;
-    }
-    th:nth-child(2),
-    td:nth-child(2) {
-        width: 10vw;
-    }
-    td:nth-child(5) {
-        text-align: left;
-    }
 
-    pre {
-        white-space: pre-wrap; /* Preserve whitespace and wrap long lines */
-        padding: 10px; /* Add padding for better readability */
-        background-color: #f4f4f4; /* Add a background color */
-        border: 1px solid #ccc; /* Add a border for clarity */
-        border-radius: 5px; /* Optional: Add rounded corners */
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myFlix App Documentation</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-top: 1px solid rgb(122, 122, 122);
+            border-bottom: 1px solid rgb(122, 122, 122);
+            border-left: none;
+            border-right: none;
+            font-size: 1.0rem;
+            font-weight: 500;
+        }
+
+        th,
+        td {
+            border-top: 1px solid rgb(122, 122, 122);
+            border-bottom: 1px solid rgb(122, 122, 122);
+            border-left: none;
+            border-right: none;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 20vw;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 10vw;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
     </style>
-</style>
 </head>
+
 <body>
     <h1>Title: myFlix<br></h1>
     <h2>
-        Description: 
+        Description:
     </h2>
-    <h3>A movie app that allows users to view information about different movies, genres, and directors.<br>Users can also create an account, update their information, and add movies to their list of favorites.<br><br>
+    <h3>A movie app that allows users to view information about different movies, genres, and directors.<br>Users can
+        also create an account, update their information, and add movies to their list of favorites.<br><br>
     </h3>
-<table>
-    <tr>
-        <th>Business Logic</th>
-        <th>URL</th>
-        <th>HTTP Method</th>
-        <th>Request Body data format</th>
-        <th>Response Body data format</th>
-    </tr>
-    <tr>
-        <td>LIST ALL MOVIES<br>Responds with a list of ALL movies and their associated data to the user.  Each move includes Title, Description, Genre, Genre Description, Director Name, Director Bio, Director Birthdate, Image URL, and whether it is a featured film.</td>
-        <td>/movies</td>
-        <td>GET</td>
-        <td>None</td>
-        <td>A JSON object holding data about all movies, structured like:<br>{<br>
-            &Tab;"Title":"Movie Title Here",<br>
-            &Tab;"Description":"Movie Description Here",<br>
-            &Tab;"Genre": {<br>
-            &Tab;&Tab;"Name":"Genre Name Here",<br>
-            &Tab;&Tab;"Description":"Genre Description Here",<br>
-            &Tab;},<br>
-            &Tab;"Director": {<br>
-            &Tab;&Tab;"Name":"Director Name Here",<br>
-            &Tab;&Tab;"Bio":"Director Bio Here",<br>
-            &Tab;&Tab;"Birth":"YYYY.MM.DD",<br>
-            &Tab;},<br>
-            &Tab;"imageURL":"Image URL Here",<br>
-            &Tab;"Featured":true/false<br>
-            }<br>
-            </td>
-    </tr>
-    <tr>
-        <td>SINGLE MOVIE INFORMATION<br>Given a movie title, responds with all data on that movie.  Includes Title, Description, Genre, Genre Description, Director Name, Director Bio, Director Birthdate, Image URL, and whether it is a featured film.</td>
-        <td>/movies/[title]</td>
-        <td>GET</td>
-        <td>None</td>
-        <td>A JSON object holding all data about the given movie.</td>
-    </tr>
-    <tr>
-        <td>GENRE INFORMATION<br>Given a genre, responds with a description of the genre</td>  <!-- Given a genre, return the description of genre-->
-        <td>/movies/genre/[genre]</td>
-        <td>GET</td>
-        <td>None</td>
-        <td>A text message describing the given genre</td>
-    </tr>
-    <tr>
-        <td>DIRECTOR INFORMATION<br>Given a director, responds with data about that director (name, bio, birth year)</td>
-        <td>/movies/directors/[director]</td>
-        <td>GET</td>
-        <td>None</td>
-        <td>A JSON object holding all the data about the given director.  Includes Name, Bio, Birthdate</td>
-    </tr>
-    <tr>
-        <td>ADD USER<br>Adds a new user, passes name and favorite film, responds with name, favorite film, and unique user ID</td>
-        <td>/users</td>
-        <td>POST</td>
-        <td>A JSON object holding data about the user to add, structured like:</td>
-        <td>A JSON object holding data about the user that was added, including a unique ID</td>
-    </tr>
-    <tr>
-        <td>UPDATE USER NAME<br>Given a user id and username, updates the username, responds with text message indicating the action was completed or failed</td>
-        <td>/users/[id]</td>
-        <td>PUT</td>
-        <td>None</td>
-        <td>A text message indicating that the username was updated</td>
-    </tr>
-    <tr>
-        <td>ADD FAVORITE MOVIE<br>Given a user ID and a movie title, adds the title to the user's favorite movie list, responds with confirmation message that the movie has been added</td>
-        <td>/users/[id]]/[title]</td>
-        <td>POST</td>
-        <td>None</td>
-        <td>A text message indicating a movie was added to the user's favorite list</td>
-    </tr>
-    <tr>
-        <td>REMOVE FAVORITE MOVIE<br>Given a user ID and a movie title, removes the title from the user's favorite movie list, responds with confirmation message that the movie was removed.</td>
-        <td>/users/[id]]/[title]</td>
-        <td>DELETE</td>
-        <td>None</td>
-        <td>A text message indicating a movie was removed from the user's favorite list</td>
-    </tr>
-    <tr>
-        <td>REMOVE USER<br>Given a user ID, removes the user from the database, responds with a confirmation message that the user was removed</td>
-        <td>/users/[id]</td>
-        <td>DELETE</td>
-        <td>None</td>
-        <td>A text message indicating the user email was removed</td>
-    </tr>
-</table>
-
-<h1>Possible Format for example structures</h1>
-<p>Format for example structures :</p>
+    <table>
+        <tr>
+            <th>Request</th>
+            <th>URL</th>
+            <th>HTTP Method</th>
+            <th>Request Body data format</th>
+            <th>Response Body data format</th>
+        </tr>
+        <tr>
+            <td>Get list of all movies</td>
+            <td>/movies</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>An array of JSON objects holding information about all the movies in the database</td>
+        </tr>
+        <tr>
+            <td>Get information about a specific movie</td>
+            <td>/movies/[title]</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding all data about the given movie, structured like:
 <pre>
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Hello World&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Hello, World!&lt;/h1&gt;
-    &lt;p&gt;This is a sample HTML document.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+{
+    "Title":"Movie Title" ,
+    "Description":"Movie Description",
+    "Genre": {
+        "Name":"Genre Name",
+        "Description":"Genre Description",
+    },
+    "Director": {
+        "Name":"Director Name",
+        "Bio":"Director Bio",
+        "Birth":"YYYY.MM.DD",
+    },
+    "imageURL":"Image URL",
+    "Featured":true or false
+    }
 </pre>
-
-
+            </td>
+        </tr>
+        <tr>
+            <td>Get information about a specific genre</td>
+            <!-- Given a genre, return the description of genre ??-->
+            <td>/movies/genre/[genre]</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A text message containing a description of the genre</td>
+        </tr>
+        <tr>
+            <td>Get information about a specific director
+            </td>
+            <td>/movies/directors/[director]</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding all the data about the given director, structured like:
+<pre>
+{
+    "Name": "Director Name",
+    "Bio": "Director Bio",
+    "Birth": "YYYY.MM.DD"
+}
+</pre>
+            </td>
+        </tr>
+        <tr>
+            <td>Add a User</td>
+            <td>/users</td>
+            <td>POST</td>
+            <td>A JSON object holding data about the user to add, structured like:
+<pre>
+{
+    "name": "Mary",
+    "favoriteMovies":[]
+}
+</pre>
+            </td>
+            <td>A JSON object holding data about the user that was added, including a unique ID, structured like:
+<pre>
+{
+    "name": "Mary",
+    "favoriteMovies": [],
+    "id": "unique-ID"
+}
+</pre>
+            </td>
+        </tr>
+        <tr>
+            <td>Update Username</td>
+            <td>/users/[id]</td>
+            <td>PUT</td>
+            <td>None</td>
+            <td>A text message indicating that the username was updated</td>
+        </tr>
+        <tr>
+            <td>Add a movie to a user's favorites list</td>
+            <td>/users/[id]]/[title]</td>
+            <td>POST</td>
+            <td>None</td>
+            <td>A text message indicating a movie was added to the user's favorite list</td>
+        </tr>
+        <tr>
+            <td>Remove a movie from a user's Favorites</td>
+            <td>/users/[id]]/[title]</td>
+            <td>DELETE</td>
+            <td>None</td>
+            <td>A text message indicating a movie was removed from the user's favorite list</td>
+        </tr>
+        <tr>
+            <td>Remove a user</td>
+            <td>/users/[id]</td>
+            <td>DELETE</td>
+            <td>None</td>
+            <td>A text message indicating the user was removed</td>
+        </tr>
+        <tr>
+            <td>List All Users</td>
+            <td>/users</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>An array of JSON objects holding information about all the movies in the database</td>
+        </tr>
+    </table>
 </body>
+
 </html>

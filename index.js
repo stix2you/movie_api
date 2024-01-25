@@ -223,7 +223,7 @@ app.post('/users', (req, res) => {
     } else {
         newUser.id = uuid.v4();
         users.push(newUser);
-        res.status(201).send(newUser);
+        res.status(201).send(newUser.name + " has been added to the database.");
     }
 });
 
@@ -236,7 +236,7 @@ app.put('/users/:id', (req, res) => {
 
     if (user) {
         user.name = updatedUser.name;
-        res.status(200).json(user); 
+        res.status(200).send("User " + id + " username has been updated to " + user.name + "."); 
     } else {
         res.status(400).send('User not found');
     }
@@ -278,12 +278,16 @@ app.delete('/users/:id', (req, res) => {
 
     if (user) {
         users = users.filter( user => user.id != id );
-        res.status(200).send("user " + id + " has been removed from the database.");
+        res.status(200).send("User " + id + " has been removed from the database.");
     } else {
         res.status(400).send('User not found');
     }
 });
 
+// List all users
+app.get('/users', (req, res) => {
+    res.status(200).json(users);
+});
 
 // Start server on 8080
 app.listen(8080, () => console.log('listening on 8080'));
