@@ -44,64 +44,64 @@
     </tr>
     <tr>
         <td>Return a list of ALL movies to the user</td>
-        <td>Data 2</td>
-        <td>Data 3</td>
+        <td>/movies</td>
+        <td>GET</td>
         <td>Data 4</td>
         <td>Data 5</td>
     </tr>
     <tr>
         <td>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user</td>
-        <td>Data 2</td>
-        <td>Data 3</td>
+        <td>/movies/[title]</td>
+        <td>GET</td>
         <td>Data 4</td>
         <td>Data 5</td>
     </tr>
     <tr>
-        <td>Return data about a genre (description) by name/title</td>
-        <td>Data 2</td>
-        <td>Data 3</td>
+        <td>Return data about a genre (description) by title</td>
+        <td>/movies/[title]/genre</td>
+        <td>GET</td>
         <td>Data 4</td>
         <td>Data 5</td>
     </tr>
     <tr>
         <td>Return data about a director (bio, birth year, death year) by name</td>
-        <td>Data 2</td>
-        <td>Data 3</td>
+        <td>/movies/[director]</td>
+        <td>GET</td>
         <td>Data 4</td>
         <td>Data 5</td>
     </tr>
     <tr>
         <td>Allow new users to register</td>
-        <td>Data 2</td>
-        <td>Data 3</td>
+        <td>/users</td>
+        <td>POST</td>
         <td>Data 4</td>
         <td>Data 5</td>
     </tr>
     <tr>
         <td>Allow users to update their user info (username)</td>
-        <td>Data 2</td>
-        <td>Data 3</td>
+        <td>/users/[username]</td>
+        <td>PUT</td>
         <td>Data 4</td>
         <td>Data 5</td>
     </tr>
     <tr>
         <td>Allow users to add a movie to their list of favorites, showing only a text that a movie has been added</td>
-        <td>Data 2</td>
-        <td>Data 3</td>
+        <td>/users/favorites/[title]</td>
+        <td>POST</td>
         <td>Data 4</td>
         <td>Data 5</td>
     </tr>
     <tr>
         <td>Allow users to remove a movie from their list of favorites (showing only a text that a movie has been removed</td>
-        <td>Data 2</td>
-        <td>Data 3</td>
+        <td>/users/favorites/[title]</td>
+        <td>DELETE</td>
         <td>Data 4</td>
         <td>Data 5</td>
     </tr>
     <tr>
-        <td>Allow existing users to deregister (showing only a text that a user email has been removed</td>
-        <td>Data 2</td>
-        <td>Data 3</td>
+        <td>Allow existing users to deregister, showing only a text that a user email has been removed</td>
+        <td>/users/[ID]</td>
+        <td>DELETE</td>
         <td>Data 4</td>
         <td>Data 5</td>
     </tr>
