@@ -7,14 +7,14 @@ app.use(bodyParser.json());
 
 let users = [
     {
-        id: "1",
+        id: 1,
         name: "Kim",
         favoriteMovies: []
     },
     {
-        id: "2",
+        id: 2,
         name: "Joe",
-        favoriteMovies: ["The Fountain"]
+        favoriteMovies: ["The Godfather"]
     },
 ];
 
@@ -172,4 +172,118 @@ let movies = [
 
 ];
 
+// Return a list of ALL movies to the user
+app.get('/movies', (req, res) => {
+    res.status(200).json(movies);
+});
+
+// Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user
+app.get('/movies/:title', (req, res) => {
+    const { title } = req.params;
+    const movie = movies.find( movie =>  movie.Title === title );
+
+    if (movie) {
+        res.status(200).json(movie);
+    } else {
+        res.status(400).send('Movie not found');
+    }
+});
+
+// Return data about a genre (description) by name/title (of genre?)
+app.get('/movies/genre/:genreName', (req, res) => {
+    const { genreName } = req.params;
+    const genre = movies.find( movie =>  movie.Genre.Name === genreName ).Genre;
+
+    if (genre) {
+        res.status(200).json(genre);
+    } else {
+        res.status(400).send('Genre not found');
+    }
+});
+
+// Return data about a director (bio, birth year, death year) by name
+app.get('/movies/directors/:directorName', (req, res) => {
+    const { directorName } = req.params;
+    const director = movies.find( movie =>  movie.Director.Name === directorName ).Director;
+
+    if (director) {
+        res.status(200).json(director);
+    } else {
+        res.status(400).send('Director not found');
+    }
+});
+
+// Allow new users to register
+app.post('/users', (req, res) => {
+    const newUser = req.body;
+
+    if (!newUser.name) {
+        const message = 'Missing name in request body';
+        res.status(400).send(message);
+    } else {
+        newUser.id = uuid.v4();
+        users.push(newUser);
+        res.status(201).send(newUser);
+    }
+});
+
+// Allow users to update their user info (username)
+app.put('/users/:id', (req, res) => {
+    const { id } = req.params;
+    const updatedUser = req.body;
+
+    let user = users.find( user => user.id == id );
+
+    if (user) {
+        user.name = updatedUser.name;
+        res.status(200).json(user); 
+    } else {
+        res.status(400).send('User not found');
+    }
+});
+
+// Allow users to add a movie to their list of favorites, showing only a text that a movie has been added
+app.post('/users/:id/:movieTitle', (req, res) => {
+    const { id, movieTitle } = req.params;
+
+    let user = users.find( user => user.id == id );
+
+    if (user) {
+        user.favoriteMovies.push(movieTitle);
+        res.status(200).send(movieTitle + " has been added to " + id + "\'s array.");
+    } else {
+        res.status(400).send('User not found');
+    }
+});
+
+// Allow users to remove a movie from their list of favorites, showing only a text that a movie has been removed
+app.delete('/users/:id/:movieTitle', (req, res) => {
+    const { id, movieTitle } = req.params;
+
+    let user = users.find( user => user.id == id );
+
+    if (user) {
+        user.favoriteMovies = user.favoriteMovies.filter( title => title !== movieTitle );
+        res.status(200).send(movieTitle + " has been removed from user " + id + "\'s array.");
+    } else {
+        res.status(400).send('User not found');
+    }
+});
+
+// Allow existing users to deregister, showing only a text that a user email has been removed
+app.delete('/users/:id', (req, res) => {
+    const { id } = req.params;
+
+    let user = users.find( user => user.id == id );
+
+    if (user) {
+        users = users.filter( user => user.id != id );
+        res.status(200).send("user " + id + " has been removed from the database.");
+    } else {
+        res.status(400).send('User not found');
+    }
+});
+
+
+// Start server on 8080
 app.listen(8080, () => console.log('listening on 8080'));

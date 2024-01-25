@@ -47,28 +47,28 @@
         <td>/movies</td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding data about all movies, structured like:</td>
+        <td>A JSON object holding data about all movies.  Includes Title, Description, Genre, Genre Description, Director Name, Director Bio, Director Birthdate, Image URL, and whether it is a featured film.</td>
     </tr>
     <tr>
         <td>Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user</td>
         <td>/movies/[title]</td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding all data about the given movie, structured like:</td>
+        <td>A JSON object holding all data about the given movie.  Includes Title, Description, Genre, Genre Description, Director Name, Director Bio, Director Birthdate, Image URL, and whether it is a featured film.</td>
     </tr>
     <tr>
-        <td>Return data about a genre (description) by title</td>  <!-- Given a title, return the Genre-->
-        <td>/movies/[title]/genre</td>
+        <td>Return data about a genre (description) by title</td>  <!-- Given a genre, return the description of genre-->
+        <td>/movies/genre/[genre]</td>
         <td>GET</td>
         <td>None</td>
-        <td>A text message indicating the genre of the given movie</td>
+        <td>A text message describing the given genre</td>
     </tr>
     <tr>
         <td>Return data about a director (bio, birth year, death year) by name</td>
-        <td>/movies/[director]</td>
+        <td>/movies/directors/[director]</td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding all the data about the given director, structured like:</td>
+        <td>A JSON object holding all the data about the given director.  Includes Name, Bio, Birthdate</td>
     </tr>
     <tr>
         <td>Allow new users to register</td>
@@ -79,28 +79,28 @@
     </tr>
     <tr>
         <td>Allow users to update their user info (username)</td>
-        <td>/users/[username]</td>
+        <td>/users/[id]</td>
         <td>PUT</td>
         <td>None</td>
         <td>A text message indicating that the username was updated</td>
     </tr>
     <tr>
         <td>Allow users to add a movie to their list of favorites, showing only a text that a movie has been added</td>
-        <td>/users/favorites/[title]</td>
+        <td>/users/[id]]/[title]</td>
         <td>POST</td>
         <td>None</td>
         <td>A text message indicating a movie was added to the user's favorite list</td>
     </tr>
     <tr>
         <td>Allow users to remove a movie from their list of favorites, showing only a text that a movie has been removed</td>
-        <td>/users/favorites/[title]</td>
+        <td>/users/[id]]/[title]</td>
         <td>DELETE</td>
         <td>None</td>
         <td>A text message indicating a movie was removed from the user's favorite list</td>
     </tr>
     <tr>
         <td>Allow existing users to deregister, showing only a text that a user email has been removed</td>
-        <td>/users/[ID]</td>
+        <td>/users/[id]</td>
         <td>DELETE</td>
         <td>None</td>
         <td>A text message indicating the user email was removed</td>
