@@ -5,6 +5,18 @@ const express = require('express'),
 
 app.use(bodyParser.json());
 
+// Imports or "requires" the Mongoose package, and the models we defined in the models.js file
+const mongoose = require('mongoose');
+const Models = require('./models.js');
+
+// so the variables 'Movies' and 'User' will point to the MODEL NAMES we defined in models.js
+const Movies = Models.Movie;
+const Users = Models.User;
+
+// connect the Mongoose to the entire database, so it can perform CRUD operations
+// According to Mongoose documentation, if the connection fails on your machine, try replacing “localhost” with “127.0.0.1”
+mongoose.connect('mongodb://localhost:27017/myFlix', { useNewUrlParser: true, useUnifiedTopology: true });
+
 let users = [
     {
         id: 1,
