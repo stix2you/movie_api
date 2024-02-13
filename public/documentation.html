@@ -77,8 +77,9 @@
             <td>/movies</td>
             <td>GET</td>
             <td>None</td>
-            <td>An array of JSON objects holding information about all the movies in the database, example:
+            <td>An array of JSON objects holding information about all the movies in the database
 <pre>
+Example record:
 {
     "_id": "movie_pulpfiction000",
     "Title": "Pulp Fiction",
@@ -96,13 +97,15 @@
             <td>Get information about a specific movie</td>
             <td>/movies/[title]
 <pre>
-Example: /movies/Pulp%20Fiction
+Example: 
+.../movies/Pulp%20Fiction
 </pre>
             </td>
             <td>GET</td>
             <td>None</td>
-            <td>A JSON object holding all data about the given movie, example:
+            <td>A JSON object holding all data about the given movie
 <pre>
+Example:
 {
     "_id": "movie_pulpfiction000",
     "Title": "Pulp Fiction",
@@ -130,15 +133,17 @@ Example: /movies/Pulp%20Fiction
         </tr>
         <tr>
             <td>Get information about a specific genre</td>
-            <td>/movies/genre/[genre]
+            <td>/genre/[genre]
 <pre>
-Example: /genres/Drama
+Example: 
+.../genres/Drama
 </pre>                
             </td>
             <td>GET</td>
             <td>None</td>
-            <td>A JSON object holding all the data about the given director, example:
+            <td>A JSON object holding all the data about the given genre
 <pre>
+Example:
 {
     "_id": "genre_drama000",
     "name": "Drama",
@@ -150,23 +155,25 @@ Example: /genres/Drama
         <tr>
             <td>Get information about a specific director
             </td>
-            <td>/movies/directors/[director]
+            <td>/directors/[director]
 <pre>
-Example: /directors/Steven%20Spielberg
+Example: 
+.../directors/Steven%20Spielberg
 </pre>                
             </td>
             <td>GET</td>
             <td>None</td>
-            <td>A JSON object holding all the data about the given director, example:
+            <td>A JSON object holding all the data about the given director
 <pre>
-    {
-        "_id": "director_stevenspielberg000",
-        "name": "Steven Spielberg",
-        "birthDate": "1946-12-18",
-        "deathDate": null,
-        "bio": "Director Bio Here.",
-        "imagePath": "https://image_url.jpg"
-    }
+Example:
+{
+    "_id": "director_stevenspielberg000",
+    "name": "Steven Spielberg",
+    "birthDate": "1946-12-18",
+    "deathDate": null,
+    "bio": "Director Bio Here.",
+    "imagePath": "https://image_url.jpg"
+}
 </pre>
             </td>
         </tr>
@@ -174,48 +181,114 @@ Example: /directors/Steven%20Spielberg
             <td>Add a User</td>
             <td>/users</td>
             <td>POST</td>
-            <td>A JSON object holding data about the user to add, structured like:
+            <td>A JSON object holding data about the user to add
 <pre>
+Example:
 {
-    "name": "Mary",
-    "favoriteMovies":[]
+    "username": "jackolanternnn",  (String)
+    "password": "password123!!!!",   (String)
+    "email": "jack@lantern.com",   (String)
+    "birthday": "1995-10-31"   (Date)
 }
 </pre>
             </td>
-            <td>A JSON object holding data about the user that was added, including a unique ID, structured like:
+            <td>A JSON object holding data about the user that was added, including a new unique ID
 <pre>
+Example:
 {
-    "name": "Mary",
-    "favoriteMovies": [],
-    "id": "unique-ID"
+    "username": "jackolanternnn",
+    "password": "password123!!!!",
+    "email": "jack@lantern.com",
+    "birthday": "1995-10-31T00:00:00.000Z",
+    "favorite_movies": [],
+    "_id": "65cacb968d267bac3742a800",
+    "__v": 0
 }
 </pre>
             </td>
         </tr>
         <tr>
             <td>Update Username</td>
-            <td>/users/[id]</td>
+            <td>/users/[current username]
+<pre>
+Example:
+.../users/jackolantern    
+</pre>
+            </td>
             <td>PUT</td>
-            <td>None</td>
-            <td>A text message indicating that the username was updated</td>
+            <td>A JSON object holding data about the user to update
+<pre>
+Example:
+{
+    "username": "JackNewName",  (String)
+    "password": "password123!!!!",  (String)
+    "email": "jack@lantern.com",   (String)
+    "birthday": "1995-10-31"   (Date)
+}
+</pre>
+        </td>
+        <td>A JSON object holding data about the user that was updated
+<pre>
+Example:
+{
+    "_id": "65cacb968d267bac3742a800",
+    "username": "JackNewName",
+    "password": "password123!!!!",
+    "email": "jack@lantern.com",
+    "birthday": "1995-10-31T00:00:00.000Z",
+    "favorite_movies": [],
+    "__v": 0
+}
+</pre>
+        </td>
         </tr>
         <tr>
             <td>Add a movie to a user's favorites list</td>
-            <td>/users/[id]]/[title]</td>
+            <td>/users/[username]/movies/[movie_ID]
+<pre>
+Example:
+.../users/jackolantern/movies/movie_pulpfiction000
+</pre>
+            </td>
             <td>POST</td>
             <td>None</td>
-            <td>A text message indicating a movie was added to the user's favorite list</td>
+            <td>A JSON object showing the updated favorite_movies array
+<pre>
+Example:
+{
+    "_id": "65cacb968d267bac3742a800",
+    "username": "jackolantern",
+    "password": "password123!!!!",
+    "email": "jack@lantern.com",
+    "birthday": "1995-10-31T00:00:00.000Z",
+    "favorite_movies": [
+        "movie_pulpfiction000"
+    ],
+    "__v": 0
+}
+</pre>
+            </td>
         </tr>
         <tr>
             <td>Remove a movie from a user's Favorites</td>
-            <td>/users/[id]]/[title]</td>
+            <td>/users/[username]/movies/[movie_ID]
+<pre>
+Example:
+.../users/jackolantern/movies/movie_pulpfiction000    
+</pre>
+            </td>
             <td>DELETE</td>
             <td>None</td>
             <td>A text message indicating a movie was removed from the user's favorite list</td>
         </tr>
         <tr>
             <td>Remove a user</td>
-            <td>/users/[id]</td>
+            <td>/users/[username]
+<pre>
+Example:
+.../users/jackolantern
+</pre>
+            </td>
             <td>DELETE</td>
             <td>None</td>
             <td>A text message indicating the user was removed</td>
@@ -225,7 +298,47 @@ Example: /directors/Steven%20Spielberg
             <td>/users</td>
             <td>GET</td>
             <td>None</td>
-            <td>An array of JSON objects holding information about all the movies in the database</td>
+            <td>An array of JSON objects holding information about all the users in the database
+<pre>
+Example format:
+{
+    "_id": "65c2dd36714b2df1114d6a84",
+    "first_name": "Sarah",
+    "last_name": "Garcia",
+    "username": "sarahgarcia",
+    "password": "Password8!",
+    "birthday": "1987-06-18",
+    "favorite_movies": [
+        "movie_savingprivateryan000",
+        "movie_themagnificentseven000"
+    ]
+}
+</pre>
+            </td>
+        </tr>
+        <tr>
+            <td>List a Single User</td>
+            <td>/users/[username]
+<pre>
+.../users/jackolantern
+</pre>
+            </td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding information about the user
+<pre>
+Example:
+{
+    "_id": "65cadb7dd1468d0e5725c735",
+    "username": "jackolantern",
+    "password": "password123!!!!",
+    "email": "jack@lantern.com",
+    "birthday": "1995-10-31T00:00:00.000Z",
+    "favorite_movies": [],
+    "__v": 0
+}
+</pre>
+            </td>
         </tr>
     </table>
 </body>
