@@ -77,54 +77,96 @@
             <td>/movies</td>
             <td>GET</td>
             <td>None</td>
-            <td>An array of JSON objects holding information about all the movies in the database</td>
+            <td>An array of JSON objects holding information about all the movies in the database, example:
+<pre>
+{
+    "_id": "movie_pulpfiction000",
+    "Title": "Pulp Fiction",
+    "ReleaseYear": "1994",
+    "Rating": "R",
+    "Runtime": "2h 34m",
+    "Description": "(Movie Description here)",
+    "ImagePath": "https://image_url.jpg",
+    "Featured": true
+}
+</pre>                
+            </td>
         </tr>
         <tr>
             <td>Get information about a specific movie</td>
-            <td>/movies/[title]</td>
+            <td>/movies/[title]
+<pre>
+Example: /movies/Pulp%20Fiction
+</pre>
+            </td>
             <td>GET</td>
             <td>None</td>
-            <td>A JSON object holding all data about the given movie, structured like:
+            <td>A JSON object holding all data about the given movie, example:
 <pre>
 {
-    "Title":"Movie Title" ,
-    "Description":"Movie Description",
-    "Genre": {
-        "Name":"Genre Name",
-        "Description":"Genre Description",
-    },
-    "Director": {
-        "Name":"Director Name",
-        "Bio":"Director Bio",
-        "Birth":"YYYY.MM.DD",
-    },
-    "imageURL":"Image URL",
-    "Featured":true or false
-    }
+    "_id": "movie_pulpfiction000",
+    "Title": "Pulp Fiction",
+    "ReleaseYear": "1994",
+    "Rating": "R",
+    "Runtime": "2h 34m",
+    "Description": "(Movie Descripsion Here).",
+    "Genres": [
+        "genre_crime000",
+        "genre_drama000"
+    ],
+    "Director": [
+        "director_quentintarantino000"
+    ],
+    "Actors": [
+        "actor_johntravolta000",
+        "actor_samuelljackson000",
+        "actor_umathurman000"
+    ],
+    "ImagePath": "https://image_url.jpg",
+    "Featured": true
+}
 </pre>
             </td>
         </tr>
         <tr>
             <td>Get information about a specific genre</td>
-            <!-- Given a genre, return the description of genre ??-->
-            <td>/movies/genre/[genre]</td>
+            <td>/movies/genre/[genre]
+<pre>
+Example: /genres/Drama
+</pre>                
+            </td>
             <td>GET</td>
             <td>None</td>
-            <td>A text message containing a description of the genre</td>
+            <td>A JSON object holding all the data about the given director, example:
+<pre>
+{
+    "_id": "genre_drama000",
+    "name": "Drama",
+    "description": "Genre Description Here."
+}
+</pre>
+            </td>
         </tr>
         <tr>
             <td>Get information about a specific director
             </td>
-            <td>/movies/directors/[director]</td>
+            <td>/movies/directors/[director]
+<pre>
+Example: /directors/Steven%20Spielberg
+</pre>                
+            </td>
             <td>GET</td>
             <td>None</td>
-            <td>A JSON object holding all the data about the given director, structured like:
+            <td>A JSON object holding all the data about the given director, example:
 <pre>
-{
-    "Name": "Director Name",
-    "Bio": "Director Bio",
-    "Birth": "YYYY.MM.DD"
-}
+    {
+        "_id": "director_stevenspielberg000",
+        "name": "Steven Spielberg",
+        "birthDate": "1946-12-18",
+        "deathDate": null,
+        "bio": "Director Bio Here.",
+        "imagePath": "https://image_url.jpg"
+    }
 </pre>
             </td>
         </tr>

@@ -76,8 +76,8 @@ app.get('/directors/:name', async (req, res) => {
 app.post('/users', async (req, res) => {
     // check to see if the user already exists:
     await Users.findOne({ username: req.body.username })
-        .then((users) => {
-            if (users) {
+        .then((user) => {
+            if (user) {
                 return res.status(400).send(req.body.username + 'already exists');
             } else {
                 // Create the user.  req.body is the information passed from the user.  Creates a new USER DOCUMENT
@@ -112,13 +112,13 @@ app.post('/users', async (req, res) => {
   Birthday: Date
 }*/
 app.put('/users/:Username', async (req, res) => {
-    await Users.findOneAndUpdate({ Username: req.params.Username }, {
+    await Users.findOneAndUpdate({ username: req.params.Username }, {
         $set:
         {
-            Username: req.body.Username,
-            Password: req.body.Password,
-            Email: req.body.Email,
-            Birthday: req.body.Birthday
+            username: req.body.username,
+            password: req.body.password,
+            email: req.body.email,
+            birthday: req.body.birthday
         }
     },
         { new: true }) // This line makes sure that the updated document is returned
@@ -133,9 +133,9 @@ app.put('/users/:Username', async (req, res) => {
 });
 
 // Add a movie to a user's list of favorites -- NEW
-app.post('/users/:Username/movies/:MovieID', async (req, res) => {
-    await Users.findOneAndUpdate({ Username: req.params.Username }, {
-        $push: { FavoriteMovies: req.params.MovieID }
+app.post('/users/:username/movies/:_id', async (req, res) => {
+    await Users.findOneAndUpdate({ username: req.params.username }, {
+        $addToSet: { favorite_movies: req.params._id }
     },
         { new: true }) // This line makes sure that the updated document is returned
         .then((updatedUser) => {
@@ -147,30 +147,30 @@ app.post('/users/:Username/movies/:MovieID', async (req, res) => {
         });
 });
 
-// Allow users to remove a movie from their list of favorites, showing only a text that a movie has been removed -- NEW
-app.post('/users/:Username/movies/:MovieID', async (req, res) => {
-    await Users.findOneAndRemove({ Username: req.params.Username }, {
-        $push: { FavoriteMovies: req.params.MovieID }
+// Delete a movie from a user's list of favorites - NEW
+app.delete('/users/:username/movies/:_id', async (req, res) => {
+    await Users.findOneAndUpdate({ username: req.params.username }, {
+        $pull: { favorite_movies: req.params._id }
     },
         { new: true }) // This line makes sure that the updated document is returned
         .then((updatedUser) => {
-            res.json(updatedUser);
+            res.send(req.params._id + ' was deleted.');
+            // res.json(updatedUser);            
         })
         .catch((err) => {
             console.error(err);
             res.status(500).send('Error: ' + err);
         });
 });
-
 
 // Delete a user by username  -- NEW
-app.delete('/users/:Username', async (req, res) => {
-    await Users.findOneAndRemove({ Username: req.params.Username })
+app.delete('/users/:username', async (req, res) => {
+    await Users.findOneAndDelete({ username: req.params.username })
         .then((user) => {
             if (!user) {
-                res.status(400).send(req.params.Username + ' was not found');
+                res.status(400).send(req.params.username + ' was not found');
             } else {
-                res.status(200).send(req.params.Username + ' was deleted.');
+                res.status(200).send(req.params.username + ' was deleted.');
             }
         })
         .catch((err) => {
@@ -203,6 +203,7 @@ app.get('/users/:username', async (req, res) => {
         });
 });
 
+// START SERVER
 mongoose.connect('mongodb://127.0.0.1:27017/myFlix')
     .then(() => {
         console.log('Connected to MongoDB');
