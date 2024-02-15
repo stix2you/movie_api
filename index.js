@@ -4,6 +4,14 @@ const express = require('express'),
     uuid = require('uuid');
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// import auth.js file
+let auth = require('./auth')(app);  // app argument ensures Express is available in the auth.js file
+
+// require the Passport module, import passport.js below
+const passport = require('passport');
+require('./passport');
 
 // Imports or "requires" the Mongoose package, and the models we defined in the models.js file
 const mongoose = require('mongoose');
