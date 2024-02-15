@@ -25,7 +25,19 @@ const Directors = Models.Director;
 const Actors = Models.Actor;
 
 // Return a list of ALL movies to the user -- NEW
-app.get('/movies', async (req, res) => {
+// app.get('/movies', async (req, res) => {
+//     await Movies.find()
+//         .then((movies) => {
+//             res.status(201).json(movies);
+//         })
+//         .catch((err) => {
+//             console.error(err);
+//             res.status(500).send('Error: ' + err);
+//         });
+// });
+
+app.get('/movies', passport.Authenticator('jwt', { session: false }),
+async (req, res) => {
     await Movies.find()
         .then((movies) => {
             res.status(201).json(movies);
