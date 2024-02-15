@@ -3,7 +3,7 @@
 // IF they exist, THEN use generateJWTToken() function to creat a JWT based on username/password, AND send JWT to client
 // IF username/password don't exist, return error message received from LocalStrategy to client
 
-const jwtSecret = 'your_jwt_secret';  // must be same key used in JWTStrategy in passport.js
+const jwtSecret = '1234567890qwertyuiop';  // must be same key used in JWTStrategy in passport.js
 
 const jwt = require('jsonwebtoken'),
     passport = require('passport');
@@ -12,7 +12,7 @@ require('./passport');  // imports the local passport file
 
 let generateJWTToken = (user) => {
     return jwt.sign(user, jwtSecret, {
-        subject: user.Username,   // this is the username being encoded in the JWT
+        subject: user.username,   // this is the username being encoded in the JWT
         expiresIn: '7d',
         algorithm: 'HS256'  // this is the algorithm used to "sign" or encode the values of the JWT
     });
@@ -33,8 +33,8 @@ module.exports = (router) => {
                     res.send(error);
                 }
                 let token = generateJWTToken(user.toJSON());
-                return res.json({ user, token });  // returns token
+                return res.json({ user, token });
             });
-        }) (req, res);
+        })(req, res);
     });
 }

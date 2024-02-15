@@ -13,15 +13,15 @@ let Users = Models.User,
 passport.use(
     new LocalStrategy(
         {
-            usernameField: 'Username',
-            passwordField: 'Password',
+            usernameField: 'username',
+            passwordField: 'password',
         },
         async (username, password, callback) => {
-            console.log('{username} ${password}');
-            await Users.findOne({ Username: username })
+            console.log('${username} ${password}');
+            await Users.findOne({ username: username })
                 .then((user) => {
                     if (!user) {
-                        console.log('Incorrect username!');
+                        console.log('incorrect username');
                         return callback(null, false, {
                             message: 'Incorrect username or password.',
                         });
@@ -39,10 +39,11 @@ passport.use(
     )
 );
 
+
 // set up JWT authentication code below
 passport.use(new JWTStrategy({
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(), // extracts bearer token
-    secretOrKey: 'your_jwt_secret'     // this sets the key I will use
+    secretOrKey: '1234567890qwertyuiop'     // this sets the key I will use
 },
     async (jwtPayload, callback) => {
         return await Users.findById(jwtPayload._id)
