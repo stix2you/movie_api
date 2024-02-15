@@ -16,6 +16,7 @@ passport.use(
             usernameField: 'username',
             passwordField: 'password',
         },
+        
         async (username, password, callback) => {
             console.log('${username} ${password}');
             await Users.findOne({ username: username })
@@ -48,7 +49,7 @@ passport.use(new JWTStrategy({
     async (jwtPayload, callback) => {
         return await Users.findById(jwtPayload._id)
             .then((user) => {
-                return callback(null.user);
+                return callback(null, user);
             })
             .catch((error) => {
                 return callback(error)

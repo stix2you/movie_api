@@ -29,6 +29,7 @@ module.exports = (router) => {
                 });
             }
             req.login(user, { session: false }, (error) => {
+                console.log('Hello');
                 if (error) {
                     res.send(error);
                 }
