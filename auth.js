@@ -1,5 +1,5 @@
 // This authenticates login requests using basic HTTP authentication, then generates a JWT for the user
-// Uses LocalStrategy from passportjs file to check that the username/password in the body of the request exist in the database
+// Uses LocalStrategy from passport.js file to check that the username/password in the body of the request exist in the database
 // IF they exist, THEN use generateJWTToken() function to creat a JWT based on username/password, AND send JWT to client
 // IF username/password don't exist, return error message received from LocalStrategy to client
 
