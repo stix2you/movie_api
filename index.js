@@ -106,7 +106,19 @@ async (req, res) => {
   Email: String,
   Birthday: Date
 }*/
-app.post('/users', async (req, res) => {
+app.post('/users', [
+    check('username', 'Username is required').isLength({min: 5}),  // checks if the username is at least 5 characters long
+    check('username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),  // checks if the username contains only alphanumeric characters
+    check('password', 'Password is required').not().isEmpty(),  // checks if the password is not empty
+    check('email', 'Email does not appear to be valid').isEmail()  // checks if the email is valid
+],async (req, res) => {
+    // check the validation object for errors
+    let errors = validationResult(req); 
+    if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() });  // if there are errors, return a 422 response with a JSON object containing the error messages
+    }
+
+    // Hash the password
     let hashedPassword = Users.hashPassword(req.body.password);  // hashPassword is a method defined in the models.js file, req.body.Password is the password passed from the user
     // check to see if the user already exists:
     await Users.findOne({ username: req.body.username })  // uses the findOne method to look for a user with the same username, req.body.username is the username passed from the user
@@ -145,8 +157,18 @@ app.post('/users', async (req, res) => {
   Email: String, (required)
   Birthday: Date
 }*/
-app.put('/users/:Username', passport.authenticate('jwt', { session: false }),
+app.put('/users/:Username', [
+    check('username', 'Username is required').isLength({min: 5}),  // checks if the username is at least 5 characters long
+    check('username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),  // checks if the username contains only alphanumeric characters
+    check('password', 'Password is required').not().isEmpty(),  // checks if the password is not empty
+    check('email', 'Email does not appear to be valid').isEmail()  // checks if the email is valid
+], passport.authenticate('jwt', { session: false }),
 async (req, res) => {
+    // check the validation object for errors
+    let errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() });  // if there are errors, return a 422 response with a JSON object containing the error messages
+    }
     await Users.findOneAndUpdate({ username: req.params.Username }, {
         $set:
         {
@@ -164,7 +186,6 @@ async (req, res) => {
             console.error(err);
             res.status(500).send('Error: ' + err);
         })
-
 });
 
 // Add a movie to a user's list of favorites -- NEW
