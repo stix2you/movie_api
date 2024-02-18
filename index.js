@@ -6,6 +6,27 @@ const express = require('express'),
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// import cors 
+const cors = require('cors');
+
+//app.use(cors());
+
+// to allow only certain origins to access the API.  
+// creates a list of allowed domains within the variable allowedOrigins, 
+// then compares the domains of any incoming request with this list and either 
+// allows it (if the domain is on the list) or returns an error (if the domain isn’t on the list)
+let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+app.use(cors({
+  origin: (origin, callback) => {
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){ // If a specific origin isn’t found on the list of allowed origins
+      let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
+      return callback(new Error(message ), false);
+    }
+    return callback(null, true);
+  }
+}));
+
 // import auth.js file
 let auth = require('./auth')(app);  // app argument ensures Express is available in the auth.js file
 
