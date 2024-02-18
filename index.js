@@ -107,19 +107,18 @@ async (req, res) => {
   Birthday: Date
 }*/
 app.post('/users', async (req, res) => {
-    // set hashed password
-    let hashedPassword = Users.hashPassword(req.body.Password);
+    let hashedPassword = Users.hashPassword(req.body.password);  // hashPassword is a method defined in the models.js file, req.body.Password is the password passed from the user
     // check to see if the user already exists:
-    await Users.findOne({ username: req.body.username })
+    await Users.findOne({ username: req.body.username })  // uses the findOne method to look for a user with the same username, req.body.username is the username passed from the user
         .then((user) => {
             if (user) {
-                return res.status(400).send(req.body.username + 'already exists');  // If the user is found, send a response that it already exists
+                return res.status(400).send(req.body.username + 'already exists');  // If the user is found, send a response that it already exists and exit the function
             } else {
                 // Create the user.  req.body is the information passed from the user.  Creates a new USER DOCUMENT
                 Users
-                    .create({
+                    .create({  // create method is used to create a new document in the database
                         username: req.body.username,
-                        password: req.body.password,
+                        password: hashedPassword,   // hashed password !!!
                         email: req.body.email,
                         birthday: req.body.birthday
                     })

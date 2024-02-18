@@ -14,7 +14,7 @@ let userSchema = mongoose.Schema({
 
 // this function hashes the password
 userSchema.statics.hashPassword = (password) => {
-    return bcrypt.hashSync(password, 10);
+    return bcrypt.hashSync(password, 10);   // 10 is the number of rounds to process the data for
 };
 
 // this function compares the hashed password in database to the password entered by the user

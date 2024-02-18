@@ -27,7 +27,7 @@ passport.use(
                             message: 'Incorrect username or password.',
                         });
                     }
-                    if (!user.validatePassword(password)) {   // if the password is incorrect, return a message, validatePassword is a method defined in the models.js file
+                    if (!user.validatePassword(password)) {   // if the password is incorrect, return a message, validatePassword hashes password, from models.js
                         console.log('incorrect password');
                         return callback(null, false, { message: 'Incorrect password.' });   
                     }      
