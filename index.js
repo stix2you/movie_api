@@ -107,11 +107,13 @@ async (req, res) => {
   Birthday: Date
 }*/
 app.post('/users', async (req, res) => {
+    // set hashed password
+    let hashedPassword = Users.hashPassword(req.body.Password);
     // check to see if the user already exists:
     await Users.findOne({ username: req.body.username })
         .then((user) => {
             if (user) {
-                return res.status(400).send(req.body.username + 'already exists');
+                return res.status(400).send(req.body.username + 'already exists');  // If the user is found, send a response that it already exists
             } else {
                 // Create the user.  req.body is the information passed from the user.  Creates a new USER DOCUMENT
                 Users
@@ -129,7 +131,7 @@ app.post('/users', async (req, res) => {
                     })
             }
         })
-        // .catch function with catch any problems Mongoose encounters while running the create command.
+        // .catch function will catch any problems Mongoose encounters while running the create command.
         .catch((error) => {
             console.error(error);
             res.status(500).send('Error: ' + error);
