@@ -268,10 +268,11 @@ app.get('/users/:username', passport.authenticate('jwt', { session: false }),
     });
 
 // START SERVER
-mongoose.connect('mongodb://127.0.0.1:27017/myFlix')
+
+mongoose.connect('mongodb+srv://stix2you:79uo%26%28UO@stix2youdb.yyzurrk.mongodb.net/stix2youDB?retryWrites=true&w=majority')
     .then(() => {
         console.log('Connected to MongoDB');
-        const port = process.env.PORT || 8080;
+        const port = process.env.PORT || 8080;  // sets the port to 8080 if there is no PORT environment variable
         app.listen(port, '0.0.0.0', () => {
             console.log('Listening on Port ' + port);
         });
@@ -279,3 +280,16 @@ mongoose.connect('mongodb://127.0.0.1:27017/myFlix')
     .catch(err => {
         console.error('Error connecting to MongoDB:', err);
     });
+
+
+// mongoose.connect('mongodb://127.0.0.1:27017/myFlix')
+//     .then(() => {
+//         console.log('Connected to MongoDB');
+//         const port = process.env.PORT || 8080;
+//         app.listen(port, '0.0.0.0', () => {
+//             console.log('Listening on Port ' + port);
+//         });
+//     })
+//     .catch(err => {
+//         console.error('Error connecting to MongoDB:', err);
+//     });
