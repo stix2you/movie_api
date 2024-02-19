@@ -137,8 +137,9 @@ app.post('/users', [
                         email: req.body.email,
                         birthday: req.body.birthday
                     })
-                    // Now takes the document just added and sends it back to the user along with a status message. Note: CALLBACK function is within the promise, not in the main function.   
-                    .then((user) => { res.status(201).json(user) })
+                    // Now takes the document just added and sends it back to the user along with a status message. 
+                    // Note: CALLBACK function is within the promise, not in the main function.   
+                    .then((user) => { res.status(201).json(user) })   
                     .catch((error) => {
                         console.error(error);
                         res.status(500).send('Error: ' + error);
