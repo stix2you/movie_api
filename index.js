@@ -48,6 +48,11 @@ const Genres = Models.Genre;
 const Directors = Models.Director;
 const Actors = Models.Actor;
 
+// empty endpoint - starting point for the API
+app.get('/', (req, res) => {
+    res.send('Welcome to myFlix Movie App!');
+});
+
 // Return a list of ALL movies to the user -- NEW
 app.get('/movies', passport.authenticate('jwt', { session: false }),  // 'session: false' tells Passport not to create a server-side session
     async (req, res) => {
