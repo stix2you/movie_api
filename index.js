@@ -269,7 +269,7 @@ app.get('/users/:username', passport.authenticate('jwt', { session: false }),
 
 // START SERVER
 
-mongoose.connect('mongodb+srv://stix2you:79uo%26%28UO@stix2youdb.yyzurrk.mongodb.net/stix2youDB?retryWrites=true&w=majority')
+mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('Connected to MongoDB');
         const port = process.env.PORT || 8080;  // sets the port to 8080 if there is no PORT environment variable
