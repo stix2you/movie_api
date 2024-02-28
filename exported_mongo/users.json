@@ -1,19 +1,218 @@
-{"_id":{"$oid":"65c2dd36714b2df1114d6a83"},"first_name":"David","last_name":"Lopez","username":"davidlopez","password":"Password7!","birthday":"1991-01-30","favorite_movies":["movie_interstellar000","movie_sevensamurai000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a84"},"first_name":"Sarah","last_name":"Garcia","username":"sarahgarcia","password":"Password8!","birthday":"1987-06-18","favorite_movies":["movie_savingprivateryan000","movie_themagnificentseven000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a85"},"first_name":"Jessica","last_name":"Lee","username":"jessicalee","password":"Password6!","birthday":"1995-07-12","favorite_movies":["movie_thelordoftheringsthetwotowers000","movie_inception000","movie_oneflewoverthecuckoosnest000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a86"},"first_name":"Jennifer","last_name":"Hernandez","username":"jenniferhernandez","password":"Password10!","birthday":"1989-04-21","favorite_movies":["movie_spiritedaway000","movie_ratatouille000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a87"},"first_name":"Daniel","last_name":"Young","username":"danielyoung","password":"Password9!","birthday":"1980-12-03","favorite_movies":["movie_thegreatescape000","movie_backtothefuture000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a88"},"first_name":"Matthew","last_name":"Taylor","username":"matthewtaylor","password":"Password11!","birthday":"1993-02-14","favorite_movies":["movie_theshawshankredemption000","movie_thegodfatherpartii000","movie_thedarkknight000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a89"},"first_name":"Amanda","last_name":"Clark","username":"amandaclark","password":"Password12!","birthday":"1984-07-08","favorite_movies":["movie_12angrymen000","movie_schindlerslist000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a8a"},"first_name":"Michael","last_name":"Johnson","username":"michaeljohnson","password":"Password3!","birthday":"1988-03-10","favorite_movies":["movie_thelordoftheringsthereturnoftheking000","movie_pulpfiction000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a8b"},"first_name":"Kevin","last_name":"Young","username":"kevinyoung","password":"Password15!","birthday":"1988-11-05","favorite_movies":["movie_forrestgump000","movie_sevensamurai000","movie_thegreatescape000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a8c"},"first_name":"Lauren","last_name":"Hall","username":"laurenhall","password":"Password14!","birthday":"1990-03-17","favorite_movies":["movie_thegodfatherpartii000","movie_thedarkknight000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a8d"},"first_name":"Ryan","last_name":"Walker","username":"ryanwalker","password":"Password13!","birthday":"1996-10-29","favorite_movies":["movie_thelordoftheringsthereturnoftheking000","movie_pulpfiction000","movie_thegodfather000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a8e"},"first_name":"Melissa","last_name":"Scott","username":"melissascott","password":"Password16!","birthday":"1983-09-22","favorite_movies":["movie_pulpfiction000","movie_thegoodthebadandtheugly000","movie_fightclub000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a8f"},"first_name":"Brian","last_name":"Green","username":"briangreen","password":"Password17!","birthday":"1995-05-12","favorite_movies":["movie_thelordoftheringsthereturnoftheking000","movie_pulpfiction000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a90"},"first_name":"John","last_name":"Doe","username":"johndoe","password":"Password1!","birthday":"1990-05-15","favorite_movies":["movie_theshawshankredemption000","movie_thegodfather000","movie_thedarkknight000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a91"},"first_name":"Emily","last_name":"Brown","username":"emilybrown","password":"Password4!","birthday":"1992-11-25","favorite_movies":["movie_thelordoftheringsthefellowshipofthering000","movie_thegoodthebadandtheugly000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a92"},"first_name":"Rachel","last_name":"Baker","username":"rachelbaker","password":"Password18!","birthday":"1987-12-30","favorite_movies":["movie_backtothefuture000","movie_chindlerslist000","movie_spiritedaway000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a93"},"first_name":"Christopher","last_name":"Martinez","username":"chrismartinez","password":"Password5!","birthday":"1983-09-05","favorite_movies":["movie_forrestgump000","movie_fightclub000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a94"},"first_name":"Eric","last_name":"Wright","username":"ericwright","password":"Password19!","birthday":"1991-08-07","favorite_movies":["movie_12angrymen000","movie_fightclub000","movie_inception000"]}
-{"_id":{"$oid":"65c2dd36714b2df1114d6a95"},"first_name":"Stephanie","last_name":"King","username":"stephanieking","password":"Password20!","birthday":"1989-04-03","favorite_movies":["movie_theshawshankredemption000","movie_schindlerslist000","movie_forrestgump000"]}
+{
+    "first_name": "David",
+    "last_name": "Lopez",
+    "username": "davidlopez",
+    "password": "Password7!",
+    "birthday": "1991-01-30",
+    "favorite_movies": [
+        "Interstellar",
+        "Seven"
+    ]
+}
+{
+    "first_name": "Sarah",
+    "last_name": "Garcia",
+    "username": "sarahgarcia",
+    "password": "Password8!",
+    "birthday": "1987-06-18",
+    "favorite_movies": [
+        "Saving Private Ryan",
+        "The Magnificent Seven",
+    ]
+}
+{
+    "first_name": "Jessica",
+    "last_name": "Lee",
+    "username": "jessicalee",
+    "password": "Password6!",
+    "birthday": "1995-07-12",
+    "favorite_movies": [
+        "The Lord of the Rings: The Return of the King",
+        "Inception",
+        "One Flew Over the Cuckoo's Nest",
+    ]
+}
+{
+    "first_name": "Jennifer",
+    "last_name": "Hernandez",
+    "username": "jenniferhernandez",
+    "password": "Password10!",
+    "birthday": "1989-04-21",
+    "favorite_movies": [
+        "Spirited Away",
+        "Ratatouille",
+    ]
+}
+{
+    "first_name": "Daniel",
+    "last_name": "Young",
+    "username": "danielyoung",
+    "password": "Password9!",
+    "birthday": "1980-12-03",
+    "favorite_movies": [
+        "The Great Escape",
+        "Back to the Future",
+    ]
+}
+{
+    "first_name": "Matthew",
+    "last_name": "Taylor",
+    "username": "matthewtaylor",
+    "password": "Password11!",
+    "birthday": "1993-02-14",
+    "favorite_movies": [
+        "The Shawshank Redemption",
+        "The Godfather",
+        "The Dark Knight",
+    ]
+}
+{
+    "first_name": "Amanda",
+    "last_name": "Clark",
+    "username": "amandaclark",
+    "password": "Password12!",
+    "birthday": "1984-07-08",
+    "favorite_movies": [
+        "12 Angry Men",
+        "Schindler's List",
+    ]
+}
+{
+    "first_name": "Michael",
+    "last_name": "Johnson",
+    "username": "michaeljohnson",
+    "password": "Password3!",
+    "birthday": "1988-03-10",
+    "favorite_movies": [
+        "The Lord of the Rings: The Fellowship of the Ring",
+        "Pulp Fiction",
+    ]
+}
+{
+    "first_name": "Kevin",
+    "last_name": "Young",
+    "username": "kevinyoung",
+    "password": "Password15!",
+    "birthday": "1988-11-05",
+    "favorite_movies": [
+        "Forrest Gump",
+        "Seven Samurai",
+        "The Great Escape"
+    ]
+}
+{
+    "first_name": "Lauren",
+    "last_name": "Hall",
+    "username": "laurenhall",
+    "password": "Password14!",
+    "birthday": "1990-03-17",
+    "favorite_movies": [
+        "The Godfather",
+        "The Dark Knight",
+    ]
+}
+{
+    "first_name": "Ryan",
+    "last_name": "Walker",
+    "username": "ryanwalker",
+    "password": "Password13!",
+    "birthday": "1996-10-29",
+    "favorite_movies": [
+        "The Lord of the Rings: The Two Towers",
+        "Pulp Fiction",
+        "The Godfather"
+    ]
+}
+{
+    "first_name": "Melissa",
+    "last_name": "Scott",
+    "username": "melissascott",
+    "password": "Password16!",
+    "birthday": "1983-09-22",
+    "favorite_movies": [
+        "Pulp Fiction",
+        "The Good, the Bad and the Ugly",
+        "Fight Club"
+    ]
+}
+{
+    "first_name": "Brian",
+    "last_name": "Green",
+    "username": "briangreen",
+    "password": "Password17!",
+    "birthday": "1995-05-12",
+    "favorite_movies": [
+        "The Lord of the Rings: The Fellowship of the Ring",
+        "Pulp Fiction",
+    ]
+}
+{
+    "first_name": "John",
+    "last_name": "Doe",
+    "username": "johndoe",
+    "password": "Password1!",
+    "birthday": "1990-05-15",
+    "favorite_movies": [
+        "The Shawshank Redemption",
+        "The Godfather",
+        "The Dark Knight",
+    ]
+}
+{
+    "first_name": "Emily",
+    "last_name": "Brown",
+    "username": "emilybrown",
+    "password": "Password4!",
+    "birthday": "1992-11-25",
+    "favorite_movies": [
+        "The Lord of the Rings: The Return of the King",
+        "The Good, the Bad and the Ugly",
+    ]
+}
+{
+    "first_name": "Rachel",
+    "last_name": "Baker",
+    "username": "rachelbaker",
+    "password": "Password18!",
+    "birthday": "1987-12-30",
+    "favorite_movies": [
+        "Back to the Future",
+        "Schindler's List",
+        "Spirited Away"
+    ]
+}
+{
+    "first_name": "Christopher",
+    "last_name": "Martinez",
+    "username": "chrismartinez",
+    "password": "Password5!",
+    "birthday": "1983-09-05",
+    "favorite_movies": [
+        "Forrest Gump",
+        "Fight Club",
+    ]
+}
+{
+    "first_name": "Eric",
+    "last_name": "Wright",
+    "username": "ericwright",
+    "password": "Password19!",
+    "birthday": "1991-08-07",
+    "favorite_movies": [
+        "12 Angry Men",
+        "Fight Club",
+        "Inception"
+    ]
+}
+{
+    "first_name": "Stephanie",
+    "last_name": "King",
+    "username": "stephanieking",
+    "password": "Password20!",
+    "birthday": "1989-04-03",
+    "favorite_movies": [
+        "The Shawshank Redemption",
+        "Schindler's List",
+        "Forrest Gump"
+    ]
+}

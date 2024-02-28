@@ -1,12 +1,48 @@
-{"_id":"genre_western000","name":"Western","description":"Westerns are defined by their setting and time period. The story needs to take place in the American West, which begins as far east as Missouri and extends to the Pacific ocean. They’re set during the 19th century, and will often feature horse riding, military expansion, violent and non-violent interaction with Native American tribes, the creation of railways, gunfights, and technology created during the industrial revolution."}
-{"_id":"genre_biography000","name":"Biography","description":"A biography (or biopic) is a story that details the life and is told by someone other than the subject. A biography will often span a large portion of the subject's life, but in some rare cases, it may focus on the time period where that person’s life had the greatest effect on history and society."}
-{"_id":"genre_war000","name":"War","description":"The war genre has a few debatable definitions, but we’re going to try to be as straightforward and impartial as humanly possible. Movies in the war genre center around large scale conflicts between opposing forces inside a universe that shares the same natural laws as our own. War movies can be historical accounts, fictionalized events, or future speculations that incorporate civilian interaction, political interaction, and espionage that takes place alongside a large scale, violent conflict."}
-{"_id":"genre_historical000","name":"Historical","description":"The historical genre can be split into two sections. One deals with accurate representations of historical accounts which can include biographies, autobiographies, and memoirs. The other section is made up of fictional movies that are placed inside an accurate depiction of a historical setting. The accuracy of a historical story is measured against historical accounts, not fact, as there can never be a perfectly factual account of any event without first-hand experience."}
-{"_id":"genre_romance000","name":"Romance","description":"The romance genre is defined by intimate relationships. Sometimes these movies can have a darker twist, but the idea is to lean on the natural conflict derived from the pursuit of intimacy and love."}
-{"_id":"genre_science_fiction000","name":"Science Fiction","description":"Science fiction movies are defined by a mixture of speculation and science. While fantasy will explain through or make use of magic and mysticism, science fiction will use the changes and trajectory of technology and science. Science fiction will often incorporate space, biology, energy, time, and any other observable science. Most of James Cameron's best movies lean heavily on science fiction."}
-{"_id":"genre_comedy000","name":"Comedy","description":"The comedy genre is defined by events that are intended to make someone laugh, no matter if the story is macabre, droll, or zany. Comedy can be found in most movies, but if the majority of the film is intended to be a comedy you may safely place it in this genre. The best comedy movies range throughout this entire spectrum of humor."}
-{"_id":"genre_animation000","name":"Animation","description":"The animation genre is defined by inanimate objects being manipulated to appear as though they are living. This can be done in many different ways and can incorporate any other genre and sub-genre on this list."}
-{"_id":"genre_adventure000","name":"Adventure","description":"Movies in the adventure genre are defined by a journey, often including some form of pursuit, and can take place in any setting. Some of Steven Spielberg's best movies capture the essence of what makes this genre so exciting."}
-{"_id":"genre_drama000","name":"Drama","description":"The drama genre is defined by conflict and often looks to reality rather than sensationalism. Emotions and intense situations are the focus, but where other genres might use unique or exciting moments to create a feeling, movies in the drama genre focus on common occurrences. Drama is a very broad category and untethered to any era — from movies based on Shakespeare to contemporary narratives."}
-{"_id":"genre_action000","name":"Action","description":"Movies in the action genre are defined by risk and stakes. While many movies may feature an action sequence, to be appropriately categorized inside the action genre, the bulk of the content must be action-oriented, including fight scenes, stunts, car chases, and general danger."}
-{"_id":"genre_crime000","name":"Crime","description":"The crime genre deals with both sides of the criminal justice system but does not focus on legislative matters or civil suits and legal actions. The best crime movies often occupy moral gray areas where heroes and villains are much harder to define. Many of Martin Scorsese's best movies or Quentin Tarantino's movies fall within the crime genre."}
+{
+    "name": "Western",
+    "description": "Westerns are defined by their setting and time period. The story needs to take place in the American West, which begins as far east as Missouri and extends to the Pacific ocean. They’re set during the 19th century, and will often feature horse riding, military expansion, violent and non-violent interaction with Native American tribes, the creation of railways, gunfights, and technology created during the industrial revolution."
+}
+{
+    "name": "Biography",
+    "description": "A biography (or biopic) is a story that details the life and is told by someone other than the subject. A biography will often span a large portion of the subject's life, but in some rare cases, it may focus on the time period where that person’s life had the greatest effect on history and society."
+}
+{
+    "name": "War",
+    "description": "The war genre has a few debatable definitions, but we’re going to try to be as straightforward and impartial as humanly possible. Movies in the war genre center around large scale conflicts between opposing forces inside a universe that shares the same natural laws as our own. War movies can be historical accounts, fictionalized events, or future speculations that incorporate civilian interaction, political interaction, and espionage that takes place alongside a large scale, violent conflict."
+}
+{
+    "name": "Historical",
+    "description": "The historical genre can be split into two sections. One deals with accurate representations of historical accounts which can include biographies, autobiographies, and memoirs. The other section is made up of fictional movies that are placed inside an accurate depiction of a historical setting. The accuracy of a historical story is measured against historical accounts, not fact, as there can never be a perfectly factual account of any event without first-hand experience."
+}
+{
+    "name": "Romance",
+    "description": "The romance genre is defined by intimate relationships. Sometimes these movies can have a darker twist, but the idea is to lean on the natural conflict derived from the pursuit of intimacy and love."
+}
+{
+    "name": "Science Fiction",
+    "description": "Science fiction movies are defined by a mixture of speculation and science. While fantasy will explain through or make use of magic and mysticism, science fiction will use the changes and trajectory of technology and science. Science fiction will often incorporate space, biology, energy, time, and any other observable science. Most of James Cameron's best movies lean heavily on science fiction."
+}
+{
+    "name": "Comedy",
+    "description": "The comedy genre is defined by events that are intended to make someone laugh, no matter if the story is macabre, droll, or zany. Comedy can be found in most movies, but if the majority of the film is intended to be a comedy you may safely place it in this genre. The best comedy movies range throughout this entire spectrum of humor."
+}
+{
+    "name": "Animation",
+    "description": "The animation genre is defined by inanimate objects being manipulated to appear as though they are living. This can be done in many different ways and can incorporate any other genre and sub-genre on this list."
+}
+{
+    "name": "Adventure",
+    "description": "Movies in the adventure genre are defined by a journey, often including some form of pursuit, and can take place in any setting. Some of Steven Spielberg's best movies capture the essence of what makes this genre so exciting."
+}
+{
+    "name": "Drama",
+    "description": "The drama genre is defined by conflict and often looks to reality rather than sensationalism. Emotions and intense situations are the focus, but where other genres might use unique or exciting moments to create a feeling, movies in the drama genre focus on common occurrences. Drama is a very broad category and untethered to any era — from movies based on Shakespeare to contemporary narratives."
+}
+{
+    "name": "Action",
+    "description": "Movies in the action genre are defined by risk and stakes. While many movies may feature an action sequence, to be appropriately categorized inside the action genre, the bulk of the content must be action-oriented, including fight scenes, stunts, car chases, and general danger."
+}
+{
+    "name": "Crime",
+    "description": "The crime genre deals with both sides of the criminal justice system but does not focus on legislative matters or civil suits and legal actions. The best crime movies often occupy moral gray areas where heroes and villains are much harder to define. Many of Martin Scorsese's best movies or Quentin Tarantino's movies fall within the crime genre."
+}
