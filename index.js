@@ -54,8 +54,8 @@ app.get('/', (req, res) => {
 });
 
 // Return a list of ALL movies to the user -- NEW
-app.get('/movies'),  // 'session: false' tells Passport not to create a server-side session
-    async (req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }),  // 'session: false' tells Passport not to create a server-side session
+    async (req, res) => {  // async function allows us to use the 'await' keyword, req and res are objects representing the HTTP request and response
         await Movies.find()
             .then((movies) => {
                 res.status(201).json(movies);
@@ -64,7 +64,7 @@ app.get('/movies'),  // 'session: false' tells Passport not to create a server-s
                 console.error(err);
                 res.status(500).send('Error: ' + err);
             });
-    };
+    });
 
 // Return data about a single movie (description, genre, director, image URL, whether it’s featured or not) by title to the user  -- NEW
 app.get('/movies/:Title', passport.authenticate('jwt', { session: false }),
