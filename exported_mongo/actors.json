@@ -4,7 +4,7 @@
     "deathDate": "",
     "bio": "Morgan Freeman is an American actor and film narrator. He is known for his distinctive deep voice and roles in films such as The Shawshank Redemption, Driving Miss Daisy, and Million Dollar Baby.",
     "movies": [
-        "The Shawshank Redemption",
+        "The Shawshank Redemption"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Morgan_Freeman_at_The_Pentagon_on_2_August_2023_-_230802-D-PM193-3363_(cropped).jpg"
 }
@@ -14,7 +14,7 @@
     "deathDate": "",
     "bio": "Tim Robbins is an American actor, director, and producer. He is known for his roles in films such as The Shawshank Redemption, Mystic River, and Bull Durham.",
     "movies": [
-        "The Shawshank Redemption",
+        "The Shawshank Redemption"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Tim_Robbins_(Berlin_Film_Festival_2013).jpg"
 }
@@ -24,7 +24,7 @@
     "deathDate": "",
     "bio": "Michael Caine is an English actor known for his distinctive Cockney accent and range of performances. He has won numerous awards throughout his career, including two Academy Awards. Caine's notable films include The Dark Knight trilogy, The Italian Job, and The Cider House Rules.",
     "movies": [
-        "The Dark Knight",
+        "The Dark Knight"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Michael_Caine_-_Viennale_2012_a_(cropped).jpg"
 }
@@ -34,7 +34,7 @@
     "deathDate": "",
     "bio": "Robert De Niro is an American actor, producer, and director. He has received numerous accolades, including two Academy Awards, a Golden Globe Award, and the Cecil B. DeMille Award. De Niro is known for his roles in films such as Taxi Driver, Raging Bull, and Goodfellas.",
     "movies": [
-        "The Godfather Part II",
+        "The Godfather Part II"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Robert_De_Niro_Cannes_2016_2.jpg"
 }
@@ -44,7 +44,7 @@
     "deathDate": "",
     "bio": "Robert Duvall is an American actor and filmmaker. He has been nominated for seven Academy Awards and has won one for his performance in Tender Mercies. Duvall is known for his roles in films such as The Godfather, Apocalypse Now, and Lonesome Dove.",
     "movies": [
-        "The Godfather Part II",
+        "The Godfather Part II"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Robert_Duvall_1.jpg"
 }
@@ -54,7 +54,7 @@
     "deathDate": "2008-01-22",
     "bio": "Heath Ledger was an Australian actor known for his groundbreaking performance as the Joker in The Dark Knight. Ledger's other notable films include Brokeback Mountain, A Knight's Tale, and 10 Things I Hate About You.",
     "movies": [
-        "The Dark Knight",
+        "The Dark Knight"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Heath_Ledger_(2).jpg"
 }
@@ -64,7 +64,7 @@
     "deathDate": "",
     "bio": "James Caan is an American actor. He is best known for his roles in films such as The Godfather, Misery, and Elf.",
     "movies": [
-        "The Godfather",
+        "The Godfather"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:James_Caan_(1976).jpg"
 }
@@ -144,7 +144,7 @@
     "deathDate": "2004-07-01",
     "bio": "Marlon Brando was an American actor and film director. He is widely regarded as one of the greatest actors of all time. Brando's performances in A Streetcar Named Desire, On the Waterfront, and The Godfather are considered iconic in the history of cinema.",
     "movies": [
-        "The Godfather",
+        "The Godfather"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Marlon_Brando_publicity_for_One-Eyed_Jacks.png"
 }
@@ -154,7 +154,7 @@
     "deathDate": "",
     "bio": "Ralph Fiennes is an English actor known for his compelling performances in films such as Schindler's List, The English Patient, and the Harry Potter series. With his intense portrayals and remarkable range, Fiennes has established himself as one of the finest actors of his generation.",
     "movies": [
-        "Schindler's List",
+        "Schindler's List"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Ralph_Fiennes_from_%22The_White_Crow%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2018_(31747095048).jpg"
 }
@@ -164,7 +164,7 @@
     "deathDate": "",
     "bio": "Al Pacino is an American actor and filmmaker. He has had a career spanning over five decades, during which he has received numerous accolades, including an Academy Award, two Tony Awards, and two Primetime Emmy Awards. Pacino's performances in The Godfather, Serpico, and Dog Day Afternoon are widely acclaimed.",
     "movies": [
-        "The Godfather", "The Godfather Part II",
+        "The Godfather", "The Godfather Part II"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Al_Pacino_2016_(30401544240).jpg"
 }
@@ -174,7 +174,7 @@
     "deathDate": "",
     "bio": "Ian McKellen is an English actor known for his acclaimed performances in both theater and film. He is particularly well-known for his roles as Gandalf in The Lord of the Rings trilogy and Magneto in the X-Men film series. McKellen's talent and versatility have earned him numerous awards and widespread recognition.",
     "movies": [
-        "The Lord of the Rings: The Return of the King", "The Lord of the Rings: The Two Towers", "The Lord of the Rings: The Fellowship of the Ring",
+        "The Lord of the Rings: The Return of the King", "The Lord of the Rings: The Two Towers", "The Lord of the Rings: The Fellowship of the Ring"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:McKellenRichmnd040219-5_(46275370484)_(cropped).jpg"
 }
@@ -184,7 +184,7 @@
     "deathDate": "",
     "bio": "Elijah Wood is an American actor known for his iconic role as Frodo Baggins in The Lord of the Rings trilogy. With his talent and versatility, Wood has appeared in a wide range of films and TV shows, showcasing his ability to portray diverse characters.",
     "movies": [
-        "The Lord of the Rings: The Return of the King", "The Lord of the Rings: The Two Towers", "The Lord of the Rings: The Fellowship of the Ring",
+        "The Lord of the Rings: The Return of the King", "The Lord of the Rings: The Two Towers", "The Lord of the Rings: The Fellowship of the Ring"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Elijah_Wood_(47955397556)_(cropped).jpg"
 }
@@ -194,7 +194,7 @@
     "deathDate": "",
     "bio": "John Travolta is an American actor and singer who rose to fame in the 1970s with his roles in Saturday Night Fever and Grease. Known for his charisma and versatility, Travolta has enjoyed a successful career spanning decades, with notable performances in Pulp Fiction, Get Shorty, and Hairspray.",
     "movies": [
-        "Pulp Fiction",
+        "Pulp Fiction"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:John_Travolta,_2014_(cropped).jpg"
 }
@@ -204,7 +204,7 @@
     "deathDate": "",
     "bio": "Liv Tyler is an American actress known for her roles in films such as The Lord of the Rings trilogy, Armageddon, and Stealing Beauty. With her talent and beauty, Tyler has captivated audiences on both the big screen and television, establishing herself as a versatile and acclaimed actress.",
     "movies": [
-        "The Lord of the Rings: The Return of the King", "The Lord of the Rings: The Two Towers", "The Lord of the Rings: The Fellowship of the Ring",
+        "The Lord of the Rings: The Return of the King", "The Lord of the Rings: The Two Towers", "The Lord of the Rings: The Fellowship of the Ring"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Liv_Tyler_(29566238128)_(cropped).jpg"
 }
@@ -214,7 +214,7 @@
     "deathDate": "",
     "bio": "Uma Thurman is an American actress known for her captivating performances in films such as Pulp Fiction, Kill Bill, and Gattaca. With her talent and beauty, Thurman has left a lasting impression on audiences and critics alike, establishing herself as a versatile and acclaimed actress in Hollywood.",
     "movies": [
-        "Pulp Fiction",
+        "Pulp Fiction"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Uma_Thurman_Cannes_2017_(cropped).jpg"
 }
@@ -224,7 +224,7 @@
     "deathDate": "",
     "bio": "Samuel L. Jackson is an American actor and producer known for his iconic roles in films such as Pulp Fiction, Jurassic Park, and the Marvel Cinematic Universe, where he portrays Nick Fury. With his commanding presence and versatility, Jackson has become one of the most recognizable and respected actors in Hollywood.",
     "movies": [
-        "Pulp Fiction",
+        "Pulp Fiction"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:SamuelLJackson.jpg"
 }
@@ -235,7 +235,7 @@
     "bio": "Eli Wallach was an American actor known for his versatility and memorable performances in films such as The Good, the Bad and the Ugly, The Magnificent Seven, and The Godfather Part III. With his talent and distinctive presence, Wallach left a lasting legacy in the world of cinema.",
     "movies": [
         "The Good, the Bad and the Ugly",
-        "The Magnificent Seven",
+        "The Magnificent Seven"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Eli_Wallach_-_publicity.jpg"
 }
@@ -276,7 +276,7 @@
     "deathDate": "1989-12-16",
     "bio": "Lee Van Cleef was an American actor known for his roles in numerous western films, including The Good, the Bad and the Ugly, For a Few Dollars More, and Escape from New York. With his distinctive looks and strong screen presence, Van Cleef became one of the most recognizable faces in the genre.",
     "movies": [
-        "The Good, the Bad and the Ugly",
+        "The Good, the Bad and the Ugly"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:Lee_Van_Cleef_-_Death_Rides_A_Horse_(1).jpg"
 }
@@ -477,7 +477,7 @@
     "deathDate": "2014-07-19",
     "bio": "James Garner was an American actor known for his roles in television series such as Maverick and The Rockford Files, as well as films like The Great Escape, The Notebook, and Murphy's Romance. With his rugged charm and easygoing demeanor, Garner became a beloved figure in Hollywood, earning multiple awards and nominations throughout his career. He left a lasting impact on the entertainment industry and is remembered fondly by fans around the world.",
     "movies": [
-        "The Great Escape",
+        "The Great Escape"
     ],
     "imagePath": "https://en.wikipedia.org/wiki/File:James_Garner_Bret_Maverick.JPG"
 }
