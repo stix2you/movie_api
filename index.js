@@ -18,7 +18,7 @@ const cors = require('cors');
 // creates a list of allowed domains within the variable allowedOrigins, 
 // then compares the domains of any incoming request with this list and either 
 // allows it (if the domain is on the list) or returns an error (if the domain isn’t on the list)
-let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234','http://testsite.com', 'https://stix2you.github.io/myFlix-client/'];
+let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234','http://testsite.com', 'https://stix2you.github.io'];
 app.use(cors({
     origin: (origin, callback) => {
         if (!origin) return callback(null, true);
