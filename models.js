@@ -30,7 +30,7 @@ let movieSchema = mongoose.Schema({
     Runtime: String,
     Description: { type: String, required: true },
     Genres: [{ type: mongoose.Schema.Types.String, ref: 'Genre' }],
-    Director: [{ type: mongoose.Schema.Types.String, ref: 'Director' }],
+    Director: String,
     Actors: [{ type: mongoose.Schema.Types.String, ref: 'Actor' }],
     ImagePath: String,
     Featured: Boolean
