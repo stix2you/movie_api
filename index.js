@@ -203,8 +203,12 @@ app.post('/users', [
 // Updated user information update routine, with optional fields -- NEW
 app.put('/users/:Username', [
    // Include validation checks for fields only if they need to be validated
-   check('username', 'Username contains non alphanumeric characters - not allowed.').optional().isAlphanumeric(),
-   check('email', 'Email does not appear to be valid').optional().isEmail(),
+   check('username')
+      .optional({ checkFalsy: true })
+      .isAlphanumeric().withMessage('Username contains non alphanumeric characters - not allowed.'),
+    check('email')
+      .optional({ checkFalsy: true })
+      .isEmail().withMessage('Email does not appear to be valid'),
 ], passport.authenticate('jwt', { session: false }),
    async (req, res) => {
       // check the validation object for errors
