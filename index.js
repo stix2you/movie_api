@@ -178,11 +178,13 @@ app.put('/users/:Username', [
         if (!errors.isEmpty()) {
             return res.status(422).json({ errors: errors.array() });  // if there are errors, return a 422 response with a JSON object containing the error messages
         }
+        let hashedPassword = Users.hashPassword(req.body.password);  // hashPassword is a method defined in the models.js file, req.body.Password is the password passed from the user
+    // check to see if the user already exists:
         await Users.findOneAndUpdate({ username: req.params.Username }, {
             $set:
             {
                 username: req.body.username,
-                password: req.body.password,
+                password: hashedPassword,   // hashed password !!!
                 email: req.body.email,
                 birthday: req.body.birthday
             }
