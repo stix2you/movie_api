@@ -84,7 +84,9 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }),
 app.put('/movies/:Title', passport.authenticate('jwt', { session: false }),
    async (req, res) => {
       const movieId = req.params.id;
+      console.log('movieId: ' + movieId);
       const updateData = req.body; // Data to update
+      console.log('updateData: ' + updateData);
 
       try {
          const updatedMovie = await Movies.findByIdAndUpdate(
