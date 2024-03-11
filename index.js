@@ -81,9 +81,9 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }),
    });
 
 // Update a single movie's details
-app.put('/movies/:Title', passport.authenticate('jwt', { session: false }),
+app.put('/movies/:_id', passport.authenticate('jwt', { session: false }),
    async (req, res) => {
-      const movieId = req.params.id;
+      const movieId = req.params._id;
       console.log('movieId: ' + movieId);
       const updateData = req.body; // Data to update
       console.log('updateData: ' + updateData);
