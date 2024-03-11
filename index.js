@@ -13,7 +13,7 @@ const { check, validationResult } = require('express-validator');
 // import cors 
 const cors = require('cors');
 
-//app.use(cors());
+//app.use(cors());  // allows all domains to access the API -- disabled for security reasons
 
 // to allow only certain origins to access the API.  
 // creates a list of allowed domains within the variable allowedOrigins, 
@@ -78,6 +78,30 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }),
             console.error(err);
             res.status(500).send('Error: ' + err);
          });
+   });
+
+// Update a single movie's details
+app.put('/movies/:id', passport.authenticate('jwt', { session: false }),
+   async (req, res) => {
+      const movieId = req.params.id;
+      const updateData = req.body; // Data to update
+
+      try {
+         const updatedMovie = await Movies.findByIdAndUpdate(
+            movieId,
+            { $set: updateData },
+            { new: true } // This option returns the document after update was applied.
+         );
+
+         if (!updatedMovie) {
+            res.status(404).send('Movie with the given ID was not found.');
+         } else {
+            res.json(updatedMovie);
+         }
+      } catch (error) {
+         console.error(error);
+         res.status(500).send('Error: ' + error);
+      }
    });
 
 // Return data about a genre by name of genre -- NEW
@@ -159,54 +183,13 @@ app.post('/users', [
       });
 });
 
-// Update a user's info, by username -- NEW
-/* We’ll expect JSON in this format
-{
-  Username: String, (required)
-  Password: String, (required)
-  Email: String, (required)
-  Birthday: Date
-}*/
-// app.put('/users/:Username', [
-//     check('username', 'Username is required').isLength({ min: 5 }),  // checks if the username is at least 5 characters long
-//     check('username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),  // checks if the username contains only alphanumeric characters
-//     check('password', 'Password is required').not().isEmpty(),  // checks if the password is not empty
-//     check('email', 'Email does not appear to be valid').isEmail()  // checks if the email is valid
-// ], passport.authenticate('jwt', { session: false }),
-//     async (req, res) => {
-//         // check the validation object for errors
-//         let errors = validationResult(req);
-//         if (!errors.isEmpty()) {
-//             return res.status(422).json({ errors: errors.array() });  // if there are errors, return a 422 response with a JSON object containing the error messages
-//         }
-//         let hashedPassword = Users.hashPassword(req.body.password);  // hashPassword is a method defined in the models.js file, req.body.Password is the password passed from the user
-//     // check to see if the user already exists:
-//         await Users.findOneAndUpdate({ username: req.params.Username }, {
-//             $set:
-//             {
-//                 username: req.body.username,
-//                 password: hashedPassword,   // hashed password !!!
-//                 email: req.body.email,
-//                 birthday: req.body.birthday
-//             }
-//         },
-//             { new: true }) // This line makes sure that the updated document is returned
-//             .then((updatedUser) => {
-//                 res.json(updatedUser);
-//             })
-//             .catch((err) => {
-//                 console.error(err);
-//                 res.status(500).send('Error: ' + err);
-//             })
-//     });
-
 // Updated user information update routine, with optional fields -- NEW
 app.put('/users/:Username', [
    // Include validation checks for fields only if they need to be validated
    check('username')
       .optional({ checkFalsy: true })
       .isAlphanumeric().withMessage('Username contains non alphanumeric characters - not allowed.'),
-    check('email')
+   check('email')
       .optional({ checkFalsy: true })
       .isEmail().withMessage('Email does not appear to be valid'),
 ], passport.authenticate('jwt', { session: false }),
@@ -241,7 +224,6 @@ app.put('/users/:Username', [
          res.status(400).send('No update fields provided');
       }
    });
-
 
 // Add a movie to a user's list of favorites -- NEW
 app.post('/users/:username/movies/:_id', passport.authenticate('jwt', { session: false }),
