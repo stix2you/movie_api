@@ -89,19 +89,21 @@ app.put('/movies/:_id', passport.authenticate('jwt', { session: false }),
       console.log('updateData: ' + JSON.stringify(updateData));   // Log the data to the console
 
       try {
+         console.log(`Attempting to update movie with ID ${movieId} with data:`, JSON.stringify(updateData, null, 2));
          const updatedMovie = await Movies.findByIdAndUpdate(
             movieId,
             { $set: updateData },
             { new: true } // This option returns the document after update was applied.
          );
          console.log('updatedMovie: ' + updatedMovie);  // Log the updated movie to the console
+
          if (!updatedMovie) {
             res.status(404).send('Movie with the given ID was not found.');  // If the movie is not found, return a 404 response
          } else {
             res.json(updatedMovie);  // ...otherwise, return the updated movie
          }
       } catch (error) {
-         console.error(error);
+         console.error('Error updating movie:', error);
          res.status(500).send('Error: ' + error);
       }
    });
