@@ -5,56 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>myFlix App Documentation</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border-top: 1px solid rgb(122, 122, 122);
-            border-bottom: 1px solid rgb(122, 122, 122);
-            border-left: none;
-            border-right: none;
-            font-size: 1.0rem;
-            font-weight: 500;
-        }
-
-        th,
-        td {
-            border-top: 1px solid rgb(122, 122, 122);
-            border-bottom: 1px solid rgb(122, 122, 122);
-            border-left: none;
-            border-right: none;
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        th:nth-child(1),
-        td:nth-child(1) {
-            width: 20vw;
-        }
-
-        th:nth-child(2),
-        td:nth-child(2) {
-            width: 10vw;
-        }
-
-        pre {
-            white-space: pre-wrap;
-            padding: 10px;
-            background-color: #f4f4f4;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 0.8rem;
-        }
-    </style>
 </head>
 
 <body>
