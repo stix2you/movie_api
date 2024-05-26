@@ -1,4 +1,3 @@
-*** See also documentation.html in public folder
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +16,13 @@
     <h3>A movie app that allows users to view information about different movies, genres, and directors.<br>Users can
         also create an account, update their information, and add movies to their list of favorites.<br><br>
     </h3>
+
+<h2>
+        API URL:  https://stix2you-myflix-5cbcd3c20372.herokuapp.com
+    </h2>
+    <h3>See also documentation.html in public folder<br><br>
+    </h3>
+    
     <table>
         <tr>
             <th>Request</th>
