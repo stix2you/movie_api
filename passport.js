@@ -1,3 +1,8 @@
+/**
+ * @file passport.js
+ * @description Configures Passport strategies for local authentication and JWT verification.
+ */
+
 // imports components stores them in variables to use
 const passport = require('passport'),
     LocalStrategy = require('passport-local'),
@@ -10,6 +15,9 @@ let Users = Models.User,
     ExtractJWT = passportJWT.ExtractJwt;
 
 // takes username and password from the request body and uses Mongoose to check the database for a user with the same username
+/**
+ * Local strategy for username and password login
+ */
 passport.use(
     new LocalStrategy( // this is a new instance of the LocalStrategy
         {
@@ -46,6 +54,9 @@ passport.use(
 
 
 // set up JWT authentication code below
+/**
+ * JWT strategy for token verification
+ */
 passport.use(new JWTStrategy({
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(), // extracts bearer token
     secretOrKey: '1234567890qwertyuiop'     // this sets the key I will use

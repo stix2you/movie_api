@@ -1,8 +1,11 @@
+/**
+ * @file index.js
+ * @description Entry point for the myFlix API. Sets up Express server, routes, and connects to MongoDB.
+ */
+
 const express = require('express'),
    app = express(),
    bodyParser = require('body-parser')
-// uuid = require('uuid');
-// const { check, validationResult } = require('express-validator');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,7 +22,7 @@ const cors = require('cors');
 // creates a list of allowed domains within the variable allowedOrigins, 
 // then compares the domains of any incoming request with this list and either 
 // allows it (if the domain is on the list) or returns an error (if the domain isn’t on the list)
-let allowedOrigins = ['http://localhost:8080', 'http://localhost:1234', 'http://testsite.com', 'https://stix2you.github.io', 'https://myflix-dhill-portfolio-site.netlify.app'];
+let allowedOrigins = ['http://localhost:8080', 'http://localhost:4200', 'http://localhost:1234', 'http://testsite.com', 'https://stix2you.github.io', 'https://myflix-dhill-portfolio-site.netlify.app'];
 app.use(cors({
    origin: (origin, callback) => {
       if (!origin) return callback(null, true);
@@ -49,12 +52,24 @@ const Genres = Models.Genre;
 const Directors = Models.Director;
 const Actors = Models.Actor;
 
-// empty endpoint - starting point for the API
+/**
+ * This function returns a welcome message to the user
+ * @route GET /
+ * @description - empty endpoint - starting point for the API
+ * @group Welcome - Welcome message
+ * @returns {string} Welcome message
+ */
 app.get('/', (req, res) => {
    res.send('Welcome to myFlix Movie App!');
 });
 
-// Return a list of ALL movies to the user -- NEW
+/**
+ * Return a list of all movies
+ * @route GET /movies
+ * @group Movies - Operations about movies
+ * @returns {object} 200 - An array of movies
+ * @returns {Error}  default - Unexpected error
+ */
 app.get('/movies', passport.authenticate('jwt', { session: false }),  // 'session: false' tells Passport not to create a server-side session
    async (req, res) => {  // async function allows us to use the 'await' keyword, req and res are objects representing the HTTP request and response
       await Movies.find()
@@ -67,7 +82,14 @@ app.get('/movies', passport.authenticate('jwt', { session: false }),  // 'sessio
          });
    });
 
-// Return data about a single movie (description, genre, director, image URL, whether it’s featured or not) by title to the user  -- NEW
+/**
+ * Return data about a single movie by title
+ * @route GET /movies/:Title
+ * @group Movies - Operations about movies
+ * @param {string} Title.path.required - Movie title
+ * @returns {object} 200 - A movie object
+ * @returns {Error}  default - Unexpected error
+ */
 app.get('/movies/:Title', passport.authenticate('jwt', { session: false }),
    async (req, res) => {
       await Movies.findOne({ Title: req.params.Title })
@@ -80,7 +102,14 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }),
          });
    });
 
-// Return data about a genre by name of genre -- NEW
+/**
+ * Return data about a genre by name
+ * @route GET /genres/:name
+ * @group Genres - Operations about genres
+ * @param {string} name.path.required - Genre name
+ * @returns {object} 200 - A genre object
+ * @returns {Error}  default - Unexpected error
+ */
 app.get('/genres/:name', passport.authenticate('jwt', { session: false }),
    async (req, res) => {
       await Genres.findOne({ name: req.params.name })
@@ -93,7 +122,14 @@ app.get('/genres/:name', passport.authenticate('jwt', { session: false }),
          });
    });
 
-// Return data about a director (bio, birth year, death year) by name -- NEW
+/**
+ * Return data about a director by name
+ * @route GET /directors/:name
+ * @group Directors - Operations about directors
+ * @param {string} name.path.required - Director name
+ * @returns {object} 200 - A director object
+ * @returns {Error}  default - Unexpected error
+ */
 app.get('/directors/:name', passport.authenticate('jwt', { session: false }),
    async (req, res) => {
       await Directors.findOne({ name: req.params.name })
@@ -106,15 +142,18 @@ app.get('/directors/:name', passport.authenticate('jwt', { session: false }),
          });
    });
 
-//Add a user  -- NEW
-/* We’ll expect JSON in this format
-{
-  ID: Integer,
-  Username: String,
-  Password: String,
-  Email: String,
-  Birthday: Date
-}*/
+
+/**
+ * Add a user
+ * @route POST /users
+ * @group Users - Operations about users
+ * @param {string} username.body.required - Username
+ * @param {string} password.body.required - Password
+ * @param {string} email.body.required - Email
+ * @param {string} birthday.body - Birthday
+ * @returns {object} 201 - User created
+ * @returns {Error}  default - Unexpected error
+ */
 app.post('/users', [
    check('username', 'Username is required').isLength({ min: 5 }),  // checks if the username is at least 5 characters long
    check('username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),  // checks if the username contains only alphanumeric characters
@@ -159,7 +198,18 @@ app.post('/users', [
       });
 });
 
-// Updated user information update routine, with optional fields -- NEW
+/**
+ * Update user information
+ * @route PUT /users/:Username
+ * @group Users - Operations about users
+ * @param {string} Username.path.required - Username
+ * @param {string} username.body - New username
+ * @param {string} password.body - New password
+ * @param {string} email.body - New email
+ * @param {string} birthday.body - New birthday
+ * @returns {object} 200 - Updated user object
+ * @returns {Error}  default - Unexpected error
+ */
 app.put('/users/:Username', [
    // Include validation checks for fields only if they need to be validated
    check('username')
@@ -201,7 +251,15 @@ app.put('/users/:Username', [
       }
    });
 
-// Add a movie to a user's list of favorites -- NEW
+/**
+ * Add a movie to a user's list of favorites
+ * @route POST /users/:username/movies/:_id
+ * @group Users - Operations about users
+ * @param {string} username.path.required - Username
+ * @param {string} _id.path.required - Movie ID
+ * @returns {object} 200 - Updated user object
+ * @returns {Error}  default - Unexpected error
+ */
 app.post('/users/:username/movies/:_id', passport.authenticate('jwt', { session: false }),
    async (req, res) => {
       await Users.findOneAndUpdate({ username: req.params.username }, {
@@ -217,7 +275,15 @@ app.post('/users/:username/movies/:_id', passport.authenticate('jwt', { session:
          });
    });
 
-// Delete a movie from a user's list of favorites - NEW
+/**
+ * Delete a movie from a user's list of favorites
+ * @route DELETE /users/:username/movies/:_id
+ * @group Users - Operations about users
+ * @param {string} username.path.required - Username
+ * @param {string} _id.path.required - Movie ID
+ * @returns {string} 200 - Confirmation message
+ * @returns {Error}  default - Unexpected error
+ */
 app.delete('/users/:username/movies/:_id', passport.authenticate('jwt', { session: false }),
    async (req, res) => {
       await Users.findOneAndUpdate({ username: req.params.username }, {
@@ -234,7 +300,14 @@ app.delete('/users/:username/movies/:_id', passport.authenticate('jwt', { sessio
          });
    });
 
-// Delete a user by username  -- NEW
+/**
+ * Delete a user by username
+ * @route DELETE /users/:username
+ * @group Users - Operations about users
+ * @param {string} username.path.required - Username
+ * @returns {string} 200 - Confirmation message
+ * @returns {Error}  default - Unexpected error
+ */
 app.delete('/users/:username', passport.authenticate('jwt', { session: false }),
    async (req, res) => {
       await Users.findOneAndDelete({ username: req.params.username })
@@ -251,7 +324,13 @@ app.delete('/users/:username', passport.authenticate('jwt', { session: false }),
          });
    });
 
-// Get all users -- NEW
+/**
+ * Get all users
+ * @route GET /users
+ * @group Users - Operations about users
+ * @returns {object} 200 - An array of users
+ * @returns {Error}  default - Unexpected error
+ */
 app.get('/users', passport.authenticate('jwt', { session: false }),
    async (req, res) => {
       await Users.find()
@@ -264,7 +343,14 @@ app.get('/users', passport.authenticate('jwt', { session: false }),
          });
    });
 
-// Get a user by username  -- NEW   
+/**
+ * Get a user by username
+ * @route GET /users/:username
+ * @group Users - Operations about users
+ * @param {string} username.path.required - Username
+ * @returns {object} 200 - A user object
+ * @returns {Error}  default - Unexpected error
+ */ 
 app.get('/users/:username', passport.authenticate('jwt', { session: false }),
    async (req, res) => {
       await Users.findOne({ username: req.params.username })
