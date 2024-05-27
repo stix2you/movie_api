@@ -1,14 +1,14 @@
 # myFlix App Documentation
 
-<br><br>
+<br>
 ## Description
 A movie app that allows users to view information about different movies, genres, and directors. Users can also create an account, update their information, and add movies to their list of favorites.
 
-<br><br>
+<br>
 ## API URL
 [https://stix2you-myflix-5cbcd3c20372.herokuapp.com](https://stix2you-myflix-5cbcd3c20372.herokuapp.com)
 
-<br><br>
+<br>
 ## API Endpoints
 
 | Request                                    | URL                                 | HTTP Method | Request Body Data Format | Response Body Data Format                         |
@@ -24,6 +24,7 @@ A movie app that allows users to view information about different movies, genres
 | Remove a user                              | `/users/[username]`                 | DELETE      | None                     | A message indicating the user was removed         |
 | Get list of all users                      | `/users`                            | GET         | None                     | An array of JSON objects holding user information |
 | Get data for a single user                 | `/users/[username]`                 | GET         | None                     | A JSON object holding user information            |
+| Login                 | `/login/?username=[username]&password=[password]`                 | POST         | None                     | A JSON object holding user information and BEARER TOKEN to be used with all other API calls           |
 
 <br><br><br><br>
 ## Example Records:
@@ -63,7 +64,7 @@ A movie app that allows users to view information about different movies, genres
 ```
 <br><br>
 
-### Get information about a specific movie
+### Get information about a specific movie:
 **Request:**  
 `GET .../movies/Pulp%20Fiction`
 
@@ -94,7 +95,7 @@ A movie app that allows users to view information about different movies, genres
 ```
 <br><br>
 
-### Get information about a specific genre
+### Get information about a specific genre:
 **Request:**  
 `GET .../genres/Drama`
 
@@ -108,7 +109,7 @@ A movie app that allows users to view information about different movies, genres
 ```
 <br><br>
 
-### Get information about a specific director
+### Get information about a specific director:
 **Request:**
 `GET .../directors/Steven%20Spielberg`
 
@@ -125,7 +126,7 @@ A movie app that allows users to view information about different movies, genres
 ```
 <br><br>
 
-### Add a User
+### Add a User:
 **Request:**
 POST .../users
 
@@ -153,7 +154,7 @@ POST .../users
 ```
 <br><br>
 
-### Update Username, Password, Email, or Birthday
+### Update Username, Password, Email, or Birthday:
 
 **Request:**
 PUT .../users/jackolantern 
@@ -182,7 +183,7 @@ PUT .../users/jackolantern
 ```
 <br><br>
 
-### Add a movie to a user's favorites list
+### Add a movie to a user's favorites list:
 **Request:**
 POST .../users/jackolantern/movies/movie_pulpfiction000
 
@@ -202,7 +203,7 @@ POST .../users/jackolantern/movies/movie_pulpfiction000
 ```
 <br><br>
 
-### Remove a movie from a user's favorites list
+### Remove a movie from a user's favorites list:
 **Request:**
 DELETE .../users/jackolantern/movies/movie_pulpfiction000    
 
@@ -211,7 +212,7 @@ DELETE .../users/jackolantern/movies/movie_pulpfiction000
 <br><br>
 
 
-### Remove a user
+### Remove a user:
 **Request:**
 DELETE .../users/jackolantern
 
@@ -220,7 +221,7 @@ DELETE .../users/jackolantern
 <br><br>
 
 
-### Get List of All Users
+### Get List of All Users:
 **Request:**
 GET .../users
 
@@ -243,7 +244,7 @@ GET .../users
 ```
 <br><br>
 
-### Get Data for a Single User
+### Get Data for a Single User:
 
 **Request:**
 GET .../users/jackolantern
