@@ -2,7 +2,7 @@
 <br>
 
 ## Description
-A movie app that allows users to view information about different movies, genres, and directors. Users can also create an account, update their information, and add movies to their list of favorites.
+A API built with Node.js and Express, to access a movie database built using MongoDB and business logic modelled with Mongoose.  The API leverages REST architechture to provide json data about different movies, genres, and directors. The Database and API also includes user functionality, allowing users to create an account, update their information, and add or remove movies to their list of favorites.
 
 See also documentation.html in public folder for further API call information.
 <br>
