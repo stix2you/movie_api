@@ -3,6 +3,8 @@
 
 ## Description
 A movie app that allows users to view information about different movies, genres, and directors. Users can also create an account, update their information, and add movies to their list of favorites.
+
+See also documentation.html in public folder for further API call information.
 <br>
 
 ## API URL
