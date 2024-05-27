@@ -57,10 +57,7 @@ A movie app that allows users to view information about different movies, genres
 
 ... list continues ...
 ```
-
-
-
-
+<br><br>
 
 ### Get information about a specific movie
 **Request:**  
@@ -91,9 +88,7 @@ A movie app that allows users to view information about different movies, genres
     "Featured": true
 }
 ```
-
-
-
+<br><br>
 
 ### Get information about a specific genre
 **Request:**  
@@ -107,9 +102,7 @@ A movie app that allows users to view information about different movies, genres
     "description": "Genre Description Here."
 }
 ```
-
-
-
+<br><br>
 
 ### Get information about a specific director
 **Request:**
@@ -126,8 +119,7 @@ A movie app that allows users to view information about different movies, genres
     "imagePath": "https://image_url.jpg"
 }
 ```
-
-
+<br><br>
 
 ### Add a User
 **Request:**
@@ -155,8 +147,7 @@ POST .../users
     "__v": 0
 }
 ```
-
-
+<br><br>
 
 ### Update Username, Password, Email, or Birthday
 
@@ -185,7 +176,7 @@ PUT .../users/jackolantern
     "__v": 0
 }
 ```
-
+<br><br>
 
 ### Add a movie to a user's favorites list
 **Request:**
@@ -205,7 +196,7 @@ POST .../users/jackolantern/movies/movie_pulpfiction000
     "__v": 0
 }
 ```
-
+<br><br>
 
 ### Remove a movie from a user's favorites list
 **Request:**
@@ -213,7 +204,7 @@ DELETE .../users/jackolantern/movies/movie_pulpfiction000
 
 **Response:**
 "Pulp Fiction was removed from the user's favorite list!"
-
+<br><br>
 
 
 ### Remove a user
@@ -222,7 +213,7 @@ DELETE .../users/jackolantern
 
 **Response:**
 "jackolantern was removed from the user database!"
-
+<br><br>
 
 
 ### Get List of All Users
@@ -245,21 +236,16 @@ GET .../users
 }
 
 ... list continues ... 
-</pre>
-         </td>
-      </tr>
-      <tr>
-         <td>Get Data for a Single User</td>
-         <td>/users/[username]
-            <pre>
-.../users/jackolantern
-</pre>
-         </td>
-         <td>GET</td>
-         <td>None</td>
-         <td>A JSON object holding information about the user
-            <pre>
-Example:
+```
+<br><br>
+
+### Get Data for a Single User
+
+**Request:**
+GET .../users/jackolantern
+
+**Response:**
+```
 {
     "_id": "65cadb7dd1468d0e5725c735",
     "username": "jackolantern",
@@ -269,10 +255,5 @@ Example:
     "favorite_movies": [],
     "__v": 0
 }
-</pre>
-         </td>
-      </tr>
-   </table>
-</body>
-
-</html>
+```
+<br><br>
