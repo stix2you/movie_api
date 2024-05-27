@@ -1,4 +1,4 @@
-# myFlix App Documentation
+# myFlix API Documentation
 <br>
 
 ## Description
