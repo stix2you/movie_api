@@ -54,7 +54,13 @@ A movie app that allows users to view information about different movies, genres
     "Featured": true
   }
 ]
+
+... list continues ...
 ```
+
+
+
+
 
 ### Get information about a specific movie
 **Request:**  
@@ -85,6 +91,10 @@ A movie app that allows users to view information about different movies, genres
     "Featured": true
 }
 ```
+
+
+
+
 ### Get information about a specific genre
 **Request:**  
 `GET .../genres/Drama`
@@ -97,6 +107,9 @@ A movie app that allows users to view information about different movies, genres
     "description": "Genre Description Here."
 }
 ```
+
+
+
 
 ### Get information about a specific director
 **Request:**
@@ -113,6 +126,8 @@ A movie app that allows users to view information about different movies, genres
     "imagePath": "https://image_url.jpg"
 }
 ```
+
+
 
 ### Add a User
 **Request:**
@@ -140,6 +155,8 @@ POST .../users
     "__v": 0
 }
 ```
+
+
 
 ### Update Username, Password, Email, or Birthday
 
@@ -170,33 +187,12 @@ PUT .../users/jackolantern
 ```
 
 
+### Add a movie to a user's favorites list
+**Request:**
+POST .../users/jackolantern/movies/movie_pulpfiction000
 
-
-
-
-
-
-
-
-
-
-
-</pre>
-         </td>
-      </tr>
-      <tr>
-         <td>Add a movie to a user's favorites list</td>
-         <td>/users/[username]/movies/[movie_ID]
-            <pre>
-Example:
-.../users/jackolantern/movies/movie_pulpfiction000
-</pre>
-         </td>
-         <td>POST</td>
-         <td>None</td>
-         <td>A JSON object showing the updated favorite_movies array
-            <pre>
-Example:
+**Response:**
+```json
 {
     "_id": "65cacb968d267bac3742a800",
     "username": "jackolantern",
@@ -208,41 +204,33 @@ Example:
     ],
     "__v": 0
 }
-</pre>
-         </td>
-      </tr>
-      <tr>
-         <td>Remove a movie from a user's favorites list</td>
-         <td>/users/[username]/movies/[movie_ID]
-            <pre>
-Example:
-.../users/jackolantern/movies/movie_pulpfiction000    
-</pre>
-         </td>
-         <td>DELETE</td>
-         <td>None</td>
-         <td>A text message indicating a movie was removed from the user's favorite list</td>
-      </tr>
-      <tr>
-         <td>Remove a user</td>
-         <td>/users/[username]
-            <pre>
-Example:
-.../users/jackolantern
-</pre>
-         </td>
-         <td>DELETE</td>
-         <td>None</td>
-         <td>A text message indicating the user was removed</td>
-      </tr>
-      <tr>
-         <td>Get List of All Users</td>
-         <td>/users</td>
-         <td>GET</td>
-         <td>None</td>
-         <td>An array of JSON objects holding information about all the users in the database
-            <pre>
-Example format:
+```
+
+
+### Remove a movie from a user's favorites list
+**Request:**
+DELETE .../users/jackolantern/movies/movie_pulpfiction000    
+
+**Response:**
+"Pulp Fiction was removed from the user's favorite list!"
+
+
+
+### Remove a user
+**Request:**
+DELETE .../users/jackolantern
+
+**Response:**
+"jackolantern was removed from the user database!"
+
+
+
+### Get List of All Users
+**Request:**
+GET .../users
+
+**Response:**
+```json
 {
     "_id": "65c2dd36714b2df1114d6a84",
     "first_name": "Sarah",
@@ -255,6 +243,8 @@ Example format:
         "movie_themagnificentseven000"
     ]
 }
+
+... list continues ... 
 </pre>
          </td>
       </tr>
