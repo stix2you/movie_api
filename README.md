@@ -26,7 +26,7 @@ A movie app that allows users to view information about different movies, genres
 
 ### Get list of all movies
 **Request:**  
-`GET /movies`
+`GET .../movies`
 
 **Response:**
 ```json
@@ -58,7 +58,7 @@ A movie app that allows users to view information about different movies, genres
 
 ### Get information about a specific movie
 **Request:**  
-`GET /movies`
+`GET .../movies/Pulp%20Fiction`
 
 **Response:**
 ```json
@@ -86,44 +86,24 @@ A movie app that allows users to view information about different movies, genres
 }
 ```
 ### Get information about a specific genre
-
 **Request:**  
-`GET /movies`
+`GET .../genres/Drama`
 
 **Response:**
 ```json
-
-Example: 
-.../genres/Drama
-</pre>
-         </td>
-         <td>GET</td>
-         <td>None</td>
-         <td>A JSON object holding all the data about the given genre
-            <pre>
-Example:
 {
     "_id": "genre_drama000",
     "name": "Drama",
     "description": "Genre Description Here."
 }
-</pre>
-         </td>
-      </tr>
-      <tr>
-         <td>Get information about a specific director
-         </td>
-         <td>/directors/[director]
-            <pre>
-Example: 
-.../directors/Steven%20Spielberg
-</pre>
-         </td>
-         <td>GET</td>
-         <td>None</td>
-         <td>A JSON object holding all the data about the given director
-            <pre>
-Example:
+```
+
+### Get information about a specific director
+**Request:**
+`GET .../directors/Steven%20Spielberg`
+
+**Response:**
+```json
 {
     "_id": "director_stevenspielberg000",
     "name": "Steven Spielberg",
@@ -132,27 +112,24 @@ Example:
     "bio": "Director Bio Here.",
     "imagePath": "https://image_url.jpg"
 }
-</pre>
-         </td>
-      </tr>
-      <tr>
-         <td>Add a User</td>
-         <td>/users</td>
-         <td>POST</td>
-         <td>A JSON object holding data about the user to add
-            <pre>
-Example:
+```
+
+### Add a User
+**Request:**
+POST .../users
+
+**Payload:**
+```json
 {
     "username": "jackolanternnn",  (String)
     "password": "password123!!!!",   (String)
     "email": "jack@lantern.com",   (String)
     "birthday": "1995-10-31"   (Date)
 }
-</pre>
-         </td>
-         <td>A JSON object holding data about the user that was added, including a new unique ID
-            <pre>
-Example:
+```
+
+**Response:**
+```
 {
     "username": "jackolanternnn",
     "password": "password123!!!!",
@@ -162,32 +139,25 @@ Example:
     "_id": "65cacb968d267bac3742a800",
     "__v": 0
 }
-</pre>
-         </td>
-      </tr>
-      <tr>
-         <td>Update Username, Password, Email, or Birthday</td>
-         <td>/users/[current username]
-            <pre>
-Example:
-.../users/jackolantern    
-</pre>
-         </td>
-         <td>PUT</td>
-         <td>A JSON object holding data about the user to update
-            <pre>
-Example:
+```
+
+### Update Username, Password, Email, or Birthday
+
+**Request:**
+PUT .../users/jackolantern 
+
+**Payload:**
+```json
 {
     "username": "JackNewName",  (String)
     "password": "password123!!!!",  (String)
     "email": "jack@lantern.com",   (String)
     "birthday": "1995-10-31"   (Date)
 }
-</pre>
-         </td>
-         <td>A JSON object holding data about the user that was updated
-            <pre>
-Example:
+```
+
+**Response:**
+```json
 {
     "_id": "65cacb968d267bac3742a800",
     "username": "JackNewName",
@@ -197,6 +167,20 @@ Example:
     "favorite_movies": [],
     "__v": 0
 }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 </pre>
          </td>
       </tr>
