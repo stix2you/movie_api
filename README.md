@@ -22,6 +22,7 @@ A movie app that allows users to view information about different movies, genres
 | Get list of all users                      | `/users`                            | GET         | None                     | An array of JSON objects holding user information |
 | Get data for a single user                 | `/users/[username]`                 | GET         | None                     | A JSON object holding user information            |
 
+<br><br><br><br>
 ## Example Records
 
 ### Get list of all movies
