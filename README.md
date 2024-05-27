@@ -1,11 +1,14 @@
 # myFlix App Documentation
 
+<br><br>
 ## Description
 A movie app that allows users to view information about different movies, genres, and directors. Users can also create an account, update their information, and add movies to their list of favorites.
 
+<br><br>
 ## API URL
 [https://stix2you-myflix-5cbcd3c20372.herokuapp.com](https://stix2you-myflix-5cbcd3c20372.herokuapp.com)
 
+<br><br>
 ## API Endpoints
 
 | Request                                    | URL                                 | HTTP Method | Request Body Data Format | Response Body Data Format                         |
@@ -23,7 +26,7 @@ A movie app that allows users to view information about different movies, genres
 | Get data for a single user                 | `/users/[username]`                 | GET         | None                     | A JSON object holding user information            |
 
 <br><br><br><br>
-## Example Records
+## Example Records:
 
 ### Get list of all movies
 **Request:**  
