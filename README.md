@@ -1,14 +1,14 @@
 # myFlix App Documentation
-
 <br>
+
 ## Description
 A movie app that allows users to view information about different movies, genres, and directors. Users can also create an account, update their information, and add movies to their list of favorites.
-
 <br>
+
 ## API URL
 [https://stix2you-myflix-5cbcd3c20372.herokuapp.com](https://stix2you-myflix-5cbcd3c20372.herokuapp.com)
-
 <br>
+
 ## API Endpoints
 
 | Request                                    | URL                                 | HTTP Method | Request Body Data Format | Response Body Data Format                         |
@@ -25,6 +25,10 @@ A movie app that allows users to view information about different movies, genres
 | Get list of all users                      | `/users`                            | GET         | None                     | An array of JSON objects holding user information |
 | Get data for a single user                 | `/users/[username]`                 | GET         | None                     | A JSON object holding user information            |
 | Login                 | `/login/?username=[username]&password=[password]`                 | POST         | None                     | A JSON object holding user information and BEARER TOKEN to be used with all other API calls           |
+<br>
+
+## Bearer Token:
+All calls except LOGIN must include the BEARER TOKEN in the Authorization header. BEARER TOKEN is received during the LOGIN call.  
 
 <br><br><br><br>
 ## Example Records:
