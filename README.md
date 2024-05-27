@@ -30,7 +30,7 @@ A movie app that allows users to view information about different movies, genres
 ## Bearer Token:
 All calls except LOGIN must include the BEARER TOKEN in the Authorization header. BEARER TOKEN is received during the LOGIN call.  
 
-<br><br><br><br>
+<br><br>
 ## Example Records:
 
 ### Get list of all movies
@@ -249,7 +249,6 @@ GET .../users
 <br><br>
 
 ### Get Data for a Single User:
-
 **Request:**
 GET .../users/jackolantern
 
@@ -266,3 +265,23 @@ GET .../users/jackolantern
 }
 ```
 <br><br>
+
+### User Login
+**Request:**
+POST .../login/?username=username70&password=password
+
+**Response:**
+```json
+{
+    "user": {
+        "_id": "664e73c7abcbc64f402245d9",
+        "username": "username70",
+        "password": "$2b$10$VI7kE9iXK7trmJYPfREuwukES49oQTKhisDf77rE72x9GS8gJS5ma",
+        "email": "emailaddress@emailaddress.com",
+        "birthday": "1995-10-31T00:00:00.000Z",
+        "favorite_movies": [],
+        "__v": 0
+    },
+    "token": "Bearer_Token_Here"
+}
+```
