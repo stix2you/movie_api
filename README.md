@@ -54,7 +54,7 @@ A movie app that allows users to view information about different movies, genres
     "Featured": true
   }
 ]
-
+```
 
 ### Get information about a specific movie
 **Request:**  
@@ -84,13 +84,15 @@ A movie app that allows users to view information about different movies, genres
     "ImagePath": "https://image_url.jpg",
     "Featured": true
 }
-</pre>
-         </td>
-      </tr>
-      <tr>
-         <td>Get information about a specific genre</td>
-         <td>/genre/[genre]
-            <pre>
+```
+### Get information about a specific genre
+
+**Request:**  
+`GET /movies`
+
+**Response:**
+```json
+
 Example: 
 .../genres/Drama
 </pre>
