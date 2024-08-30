@@ -28,7 +28,8 @@ let allowedOrigins = [
    'http://localhost:1234',
    'http://testsite.com',
    'https://stix2you.github.io',
-   'https://myflix-dhill-portfolio-site.netlify.app'
+   'https://myflix-dhill-portfolio-site.netlify.app',
+   'http://stix2you-myflix-client.s3-website.us-east-2.amazonaws.com'
 ];
 app.use(cors({
    origin: (origin, callback) => {
@@ -69,6 +70,13 @@ const Actors = Models.Actor;
 app.get('/', (req, res) => {
    res.send('Welcome to myFlix Movie App!');
 });
+
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+   res.status(200).send('OK');
+ });
+
 
 /**
  * Return a list of all movies
