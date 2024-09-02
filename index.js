@@ -16,33 +16,35 @@ const { check, validationResult } = require('express-validator');
 // import cors 
 const cors = require('cors');
 
-//app.use(cors());  // allows all domains to access the API -- disabled for security reasons
+app.use(cors());  // allows all domains to access the API -- disabled for security reasons
 
+// BELOW:
 // to allow only certain origins to access the API.  
 // creates a list of allowed domains within the variable allowedOrigins, 
 // then compares the domains of any incoming request with this list and either 
 // allows it (if the domain is on the list) or returns an error (if the domain isn’t on the list)
-let allowedOrigins = [
-   'http://localhost:8080',
-   'http://localhost:4200',
-   'http://localhost:1234',
-   'http://testsite.com',
-   'https://stix2you.github.io',
-   'https://myflix-dhill-portfolio-site.netlify.app',
-   'http://stix2you-myflix-client.s3-website.us-east-2.amazonaws.com',
-   'https://stix2you-myflix-client.s3.us-east-2.amazonaws.com/'
+
+// let allowedOrigins = [
+//    'http://localhost:8080',
+//    'http://localhost:4200',
+//    'http://localhost:1234',
+//    'http://testsite.com',
+//    'https://stix2you.github.io',
+//    'https://myflix-dhill-portfolio-site.netlify.app',
+//    'http://stix2you-myflix-client.s3-website.us-east-2.amazonaws.com',
+//    'https://stix2you-myflix-client.s3.us-east-2.amazonaws.com/'
    
-];
-app.use(cors({
-   origin: (origin, callback) => {
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) { // If a specific origin isn’t found on the list of allowed origins
-         let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
-         return callback(new Error(message), false);
-      }
-      return callback(null, true);
-   }
-}));
+// ];
+// app.use(cors({
+//    origin: (origin, callback) => {
+//       if (!origin) return callback(null, true);
+//       if (allowedOrigins.indexOf(origin) === -1) { // If a specific origin isn’t found on the list of allowed origins
+//          let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
+//          return callback(new Error(message), false);
+//       }
+//       return callback(null, true);
+//    }
+// }));
 
 // import auth.js file
 let auth = require('./auth')(app);  // app argument ensures Express is available in the auth.js file
