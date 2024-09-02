@@ -29,7 +29,9 @@ let allowedOrigins = [
    'http://testsite.com',
    'https://stix2you.github.io',
    'https://myflix-dhill-portfolio-site.netlify.app',
-   'http://stix2you-myflix-client.s3-website.us-east-2.amazonaws.com'
+   'http://stix2you-myflix-client.s3-website.us-east-2.amazonaws.com',
+   'https://stix2you-myflix-client.s3.us-east-2.amazonaws.com/'
+   
 ];
 app.use(cors({
    origin: (origin, callback) => {
